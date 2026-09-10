@@ -1,0 +1,7 @@
+{
+  "CANVASREDO": {
+    "Keybinding": "Redo Last Undone Action",
+    "KeybindingHint": "Re-applies the most recent action undone with Ctrl+Z on the active canvas layer. Canvas placeables only, and cleared when a new action is taken.",
+    "Empty": "Nothing to redo for {type} objects on this layer."
+  }
+}

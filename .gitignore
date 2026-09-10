@@ -1,0 +1,5 @@
+# LevelDB runtime files - never commit a lock or a live log
+LOCK
+*.log
+LOG
+LOG.old

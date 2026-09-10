@@ -1,0 +1,25 @@
+{
+  "id": "canvas-redo",
+  "title": "Canvas Redo",
+  "description": "Adds a redo for canvas edits. Foundry's Ctrl+Z pops its history stack and discards what it popped, so there is nothing to redo to and core registers no redo keybinding. This keeps the discarded operation and re-applies it on Ctrl+Y (or Ctrl+Shift+Z).",
+  "version": "1.0.1",
+  "compatibility": {
+    "minimum": "14",
+    "verified": "14"
+  },
+  "authors": [
+    {
+      "name": "MythraPS"
+    }
+  ],
+  "esmodules": [
+    "canvas-redo.mjs"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ]
+}

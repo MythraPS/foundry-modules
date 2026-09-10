@@ -1,0 +1,13 @@
+{
+  "id": "tselverse-facing",
+  "title": "Facing Arrow",
+  "description": "Keeps token artwork upright while movement still records facing, and draws an arrow on the token ring pointing the way the token is facing. Foundry's core 'tokenAutoRotate' writes the movement direction into TokenDocument#rotation; the per-token 'lockRotation' flag decides only whether the ARTWORK turns. This module forces lockRotation on and renders the rotation as an arrow instead.",
+  "version": "1.0.0",
+  "compatibility": {
+    "minimum": "14",
+    "verified": "14"
+  },
+  "authors": [{ "name": "MythraPS" }],
+  "esmodules": ["tselverse-facing.mjs"],
+  "languages": [{ "lang": "en", "name": "English", "path": "lang/en.json" }]
+}

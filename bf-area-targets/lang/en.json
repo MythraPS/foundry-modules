@@ -1,0 +1,16 @@
+{
+  "BFAREATARGETS": {
+    "Targeted": "Targeted {count} token(s) inside the template.",
+    "None": "No tokens inside the placed template.",
+    "SettingAutoTargetName": "Auto-target tokens in a template",
+    "SettingAutoTargetHint": "After an activity places an area template, target every token whose centre falls inside it.",
+    "SettingUseTargetsName": "Saves and checks use targets",
+    "SettingUseTargetsHint": "Let the save, check and damage buttons on a chat card act on targeted tokens. Without this Black Flag uses only the tokens you have selected.",
+    "SettingClearName": "Clear ability templates when the turn changes",
+    "SettingClearHint": "Delete area templates placed by abilities when combat advances to the next turn or combat ends. The area lasts for the action that made it.",
+    "KeybindClear": "Clear Ability Templates",
+    "KeybindClearHint": "Delete every area template placed by an ability on the current scene.",
+    "Cleared": "Cleared {count} ability template(s).",
+    "NoneToClear": "No ability templates on this scene."
+  }
+}
