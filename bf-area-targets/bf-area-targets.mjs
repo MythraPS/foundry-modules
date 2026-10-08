@@ -62,6 +62,15 @@ Hooks.once("init", () => {
     hint: "BFAREATARGETS.SettingUseTargetsHint",
     scope: "client", config: true, type: Boolean, default: true
   });
+  // Keybindings must be registered during init; registering in "ready" throws
+  // "You cannot register a Keybinding after the init hook" and Alt+Delete never worked.
+  game.keybindings.register(MODULE, "clearTemplates", {
+    name: "BFAREATARGETS.KeybindClear",
+    hint: "BFAREATARGETS.KeybindClearHint",
+    editable: [{key: "Delete", modifiers: ["Alt"]}],
+    onDown: () => { clearTemplates(); return true; },
+    restricted: true
+  });
 });
 
 Hooks.once("ready", () => {
@@ -91,13 +100,37 @@ Hooks.once("ready", () => {
     console.log(`${MODULE} | saves and checks will use targeted tokens`);
   }
 
-  game.keybindings.register(MODULE, "clearTemplates", {
-    name: "BFAREATARGETS.KeybindClear",
-    hint: "BFAREATARGETS.KeybindClearHint",
-    editable: [{key: "Delete", modifiers: ["Alt"]}],
-    onDown: () => { clearTemplates(); return true; },
-    restricted: true
-  });
+  // (3) Save and check links ([[/save]], [[/check]], [[/skill]]) ignore targets.
+  // Black Flag wires each link with its own click listener (handleRoll -> rollCheckSave),
+  // which rolls for canvas.tokens.controlled only (getSelectedTokens) and sets
+  // `target.disabled = true` while it runs, so nothing later in the event sees the click.
+  // Measured 2026-09-17: with the Tormenauk only TARGETED, clicking Shifting Form's save
+  // did nothing. Handle the click in the capture phase instead - before that listener -
+  // when there are targets, and leave the selected-token behaviour untouched otherwise.
+  const LINK_ACTIONS = new Set(["ability-save", "ability-check", "skill", "tool"]);
+  document.addEventListener("click", event => {
+    const link = event.target?.closest?.(".roll-link");
+    const group = link?.closest?.(".roll-link-group") ?? null;
+    if (!link) return;
+    const dataset = {...(group?.dataset ?? {}), ...link.dataset};
+    if (!LINK_ACTIONS.has(dataset.rollAction) || !setting("useTargets")) return;
+    const targeted = [...(game.user.targets ?? [])].filter(t => t.actor);
+    if (!targeted.length) return;                        // no targets: Black Flag's own behaviour
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    const {rollAction, dc, action: _a, tooltip: _t, ...data} = dataset;
+    (async () => {
+      for (const actor of new Set(targeted.map(t => t.actor))) {
+        const config = {event, ...data};
+        if (config.ability === "spellcasting") config.ability = actor.system.spellcasting?.ability;
+        if (dc) config.target = Number(dc);
+        await actor.roll(rollAction, config);
+      }
+    })();
+  }, true);
+  console.log(`${MODULE} | save and check links roll for targeted tokens when there are any`);
+
+
 });
 
 /**
@@ -150,4 +183,29 @@ Hooks.on("blackFlag.postCreateMeasuredTemplate", async (activity, templates) => 
   ui.notifications.info(tokens.length
     ? game.i18n.format("BFAREATARGETS.Targeted", {count: tokens.length})
     : game.i18n.localize("BFAREATARGETS.None"));
+});
+
+/* -------------------------------------------------------------------------------------- */
+/* Cubes (and walls) never placed.
+ *
+ * Black Flag maps a cube to the "ray" template, and TemplatePlacement#createShapeData
+ * builds a ray as a LINE: `{ length: size, width: baseSizes.width * gridMultiplier }`. A
+ * cube carries no width - Black Flag's own Thunderwave has none - so width comes out NaN,
+ * Foundry's LineShapeData rejects it ("width: must be a number"), and the chat card's
+ * Place Template button only shows a warning. Walls hit the same path.
+ *
+ * `blackFlag.preCreateMeasuredTemplate` runs just before that, with the shapes still
+ * editable, so the missing width is filled in there:
+ *   - cube: width = its size. A line of length S and width S is an S x S square with the
+ *     origin on the middle of one edge, which is exactly a cube seen from above.
+ *   - anything else without one (walls): one grid square.
+ */
+Hooks.on("blackFlag.preCreateMeasuredTemplate", (activity, config) => {
+  const kind = activity?.target?.template?.type;
+  for (const shape of config?.shapes ?? []) {
+    if (shape?.type !== "ray" || Number.isFinite(shape.width)) continue;
+    shape.width = kind === "cube" && Number.isFinite(shape.size)
+      ? shape.size
+      : canvas?.scene?.grid?.distance ?? 5;
+  }
 });

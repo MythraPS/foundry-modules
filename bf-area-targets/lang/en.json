@@ -11,6 +11,7 @@
     "KeybindClear": "Clear Ability Templates",
     "KeybindClearHint": "Delete every area template placed by an ability on the current scene.",
     "Cleared": "Cleared {count} ability template(s).",
-    "NoneToClear": "No ability templates on this scene."
+    "NoneToClear": "No ability templates on this scene.",
+    "NoRoller": "Target or select the creature that should make this roll first."
   }
 }

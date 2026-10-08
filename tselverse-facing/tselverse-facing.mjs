@@ -67,9 +67,20 @@ Hooks.once("init", () => {
     range: { min: 0.03, max: 0.60, step: 0.01 },
     onChange: () => canvas?.tokens?.placeables.forEach(t => { drawArrow(t); refreshArrow(t); })
   });
-  game.settings.register(ID, "autoDistance", {
-    name: "TSVFACING.AutoDistanceN", hint: "TSVFACING.AutoDistanceL",
-    scope: "world", config: true, default: true, type: Boolean,
+  game.settings.register(ID, "placement", {
+    name: "TSVFACING.PlacementN", hint: "TSVFACING.PlacementL",
+    scope: "world", config: true, default: "square", type: String,
+    choices: {
+      artwork: "TSVFACING.PlacementArtwork",
+      square:  "TSVFACING.PlacementSquare",
+      fixed:   "TSVFACING.PlacementFixed"
+    },
+    onChange: () => canvas?.tokens?.placeables.forEach(t => refreshArrow(t))
+  });
+  game.settings.register(ID, "tipGap", {
+    name: "TSVFACING.TipGapN", hint: "TSVFACING.TipGapL",
+    scope: "world", config: true, default: 0.00, type: Number,
+    range: { min: -0.50, max: 0.50, step: 0.01 },
     onChange: () => canvas?.tokens?.placeables.forEach(t => refreshArrow(t))
   });
   game.settings.register(ID, "margin", {
@@ -252,13 +263,31 @@ function artEdgeColor(token) {
  */
 function arrowDistance(token) {
   const R = ringRadius(token);
-  const len = R * setting("size");
+  const len = R * setting("size");               // origin -> TIP of the arrow
   const baseOffset = len * 0.35;                 // origin -> rear of the arrow
-  if ( setting("autoDistance") ) {
+  const mode = setting("placement");
+  // The token's picture - and its ring - are drawn at the texture scale: a placed token at 0.9
+  // (Felid Dragon, 2026-10-02) shows a smaller disc, and an arrow placed for the full square or
+  // the full-size picture floats away from it.
+  const scale = Math.abs(token.document?.texture?.scaleX ?? 1) || 1;
+  // ...but never past the token's own square: an enlarged picture (tselverse-portraits draws its
+  // inset ring-less tokens 1.62x so the disc fills the square) must not push the arrow outside it
+  const boxScale = Math.min(scale, 1);
+
+  // "square": position the arrow's POINT relative to the edge of the token's own
+  // square, measured as if facing a cardinal direction -- the square's edge is R
+  // from centre due north/east/south/west. tipGap 0 puts the point exactly on that
+  // edge, positive pushes it outside, negative pulls it inside. On a diagonal the
+  // corner is further away (R * sqrt2), which is why the setting is defined on the
+  // cardinal axis: the arrow keeps a constant distance from centre at every angle
+  // rather than tracking the square's outline.
+  if ( mode === "square" ) return (R * boxScale * (1 + setting("tipGap"))) - len;
+
+  if ( mode === "artwork" ) {
     const extent = artExtent(token);
-    if ( extent !== null ) return (R * (extent + setting("margin"))) + baseOffset;
+    if ( extent !== null ) return (R * (extent * scale + setting("margin"))) + baseOffset;
   }
-  return (R * setting("distance")) + baseOffset;
+  return (R * boxScale * setting("distance")) + baseOffset;
 }
 
 function drawArrow(token) {
@@ -292,12 +321,22 @@ function drawArrow(token) {
   fill.endFill();
 
   // Outline is a separate child so the tint above never touches it.
+  //
+  // Three things here all matter, and getting any of them wrong swallows the fill:
+  //  - width scales with the ARROW (len), not the token radius. It used to be
+  //    R * 0.03, which was proportionate at size 0.28 but left the stroke at full
+  //    thickness when the arrow shrank to 0.07 -- so the outline ate the shape and
+  //    only a small core still showed the colour.
+  //  - alignment 1 is OUTER (PIXI: "0.5 = middle, 1 = outer, 0 = inner"), so the
+  //    stroke grows away from the shape instead of inward over the fill.
+  //  - added BEFORE the fill, so it renders underneath rather than on top.
   const outline = new PIXI.Graphics();
-  outline.lineStyle({ width: Math.max(1, R * 0.03), color: 0x000000, alpha: 0.55, alignment: 0.5 });
+  outline.lineStyle({ width: Math.max(0.6, len * 0.18), color: 0x000000,
+                      alpha: 0.6, alignment: 1 });
   path(outline);
 
   const wrap = new PIXI.Container();
-  wrap.addChild(fill, outline);
+  wrap.addChild(outline, fill);
   wrap.eventMode = "none";
   wrap.__fill = fill;
   token[ARROW] = wrap;

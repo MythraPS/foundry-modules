@@ -16,12 +16,17 @@
   "TSVFACING.ColorModeBorder": "Match token border",
   "TSVFACING.ColorModeCustom": "Fixed colour",
   "TSVFACING.DistanceN": "Arrow distance",
-  "TSVFACING.DistanceL": "Fixed distance from the token centre, as a fraction of the token radius. Used only when 'Place arrow automatically' is off.",
-  "TSVFACING.AutoDistanceN": "Place arrow automatically",
-  "TSVFACING.AutoDistanceL": "Measure how far each token's artwork actually reaches and sit the arrow just outside it. Handles inset disc tokens and full-frame art alike. Turn off to use one fixed distance for every token.",
+  "TSVFACING.DistanceL": "Distance from the token centre, as a fraction of the token radius. Used with 'Fixed distance' placement.",
   "TSVFACING.MarginN": "Arrow gap",
-  "TSVFACING.MarginL": "Extra gap between the edge of the artwork and the BASE of the arrow, as a fraction of the token radius. 0 rests the base directly on the edge.",
+  "TSVFACING.MarginL": "Used with 'Edge of artwork' placement. Extra gap between the edge of the artwork and the BASE of the arrow, as a fraction of the token radius. 0 rests the base directly on the edge.",
   "TSVFACING.ColorModeArtwork": "Match token artwork",
   "TSVFACING.TokenColorN": "Facing arrow colour",
-  "TSVFACING.TokenColorL": "Override the arrow colour for this creature only. Leave blank to use the world setting."
+  "TSVFACING.TokenColorL": "Override the arrow colour for this creature only. Leave blank to use the world setting.",
+  "TSVFACING.PlacementN": "Arrow placement",
+  "TSVFACING.PlacementL": "What the arrow is positioned against. 'Edge of artwork' measures each token's art and rests the arrow's base on it. 'Edge of token square' puts the arrow's POINT a set distance from the square's edge. 'Fixed distance' ignores both and uses one value for every token.",
+  "TSVFACING.PlacementArtwork": "Edge of artwork (measured per token)",
+  "TSVFACING.PlacementSquare": "Edge of token square (point at a set gap)",
+  "TSVFACING.PlacementFixed": "Fixed distance",
+  "TSVFACING.TipGapN": "Point gap from square edge",
+  "TSVFACING.TipGapL": "Used with 'Edge of token square'. Distance from the arrow's POINT to the edge of the token's square, as a fraction of the token radius, measured facing N/E/S/W. 0 = point exactly on the edge, positive = outside it, negative = inside."
 }

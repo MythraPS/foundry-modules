@@ -45,11 +45,17 @@ Three things worth knowing, each found by reading the source rather than guessin
   rotation exists — so it turns smoothly rather than snapping.
 * **`token.mesh` is not a child of the Token container.** `Token#_draw` does
   `this.mesh = canvas.primary.addToken(this)`, so z-ordering against it throws.
-* **Placement is measured from the artwork.** Token art varies wildly in how much
-  of its canvas it fills — inset "ring room" discs reach ~0.60 of the radius,
-  Black Flag's own art ~0.98 — so a fixed distance sits neatly outside one and
-  buried inside the other. The module samples the alpha bounding box once per
-  texture and anchors the arrow's base to the real edge.
+* **Three placements** (world setting "Arrow placement"):
+  * *Edge of token square* (default): the arrow's point sits a set gap outside
+    the token's own square, so every token's arrow is the same distance out.
+  * *Edge of artwork*: token art varies wildly in how much of its canvas it
+    fills — inset "ring room" discs reach ~0.60 of the radius, Black Flag's own
+    art ~0.98 — so this samples the alpha bounding box once per texture and
+    anchors the arrow's base to the real edge.
+  * *Fixed distance*: one value for every token.
+
+  All three follow the token's texture scale, so a token drawn at 0.9 keeps its
+  arrow against the smaller disc — but never push it past the token's square.
 
 Per-creature opt-out and per-creature colour override live on the token's
 Appearance tab, on both the token and the prototype.
@@ -64,7 +70,22 @@ the save/check buttons on a chat card roll against those targets.
 Black Flag's `getActionTargets()` reads only `canvas.tokens.controlled` and
 carries a `TODO: Alternatively fetch targeted tokens`. This fills that in.
 
-Also clears templates on turn change, with `Alt+Delete` to clear by hand.
+**Save and check links in text** (`[[/save]]`, `[[/check]]`, `[[/skill]]`) roll for
+targeted tokens too. Black Flag gives each link its own click listener that rolls
+for `canvas.tokens.controlled` only and sets `target.disabled = true` while it runs,
+so nothing later in the event sees the click; this module listens in the *capture*
+phase instead, and only when something is targeted — with no targets the system's
+own behaviour is untouched.
+
+**Cube areas place.** Black Flag builds a cube as a "ray" (a line) whose width is
+`template.width * grid` — and a cube has no width (not even the system's own
+Thunderwave), so it came out `NaN`, `LineShapeData` rejected it and the Place
+Template button only warned. `blackFlag.preCreateMeasuredTemplate` fills it in:
+a cube's width is its size (a line S long and S wide *is* the cube seen from
+above); a wall without one gets one grid square.
+
+Also clears templates on turn change, with `Alt+Delete` to clear by hand
+(registered in `init` — a keybinding registered in `ready` throws and never exists).
 
 > Note for v14: `MeasuredTemplateDocument` is deprecated — "merged into the
 > functionality of the Region document" — and the TemplateLayer's scene controls

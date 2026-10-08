@@ -1,8 +1,8 @@
 {
   "id": "bf-area-targets",
   "title": "Black Flag Area Targets",
-  "description": "When an activity places an area template, target every token inside it, and let the save/check buttons on a chat card roll against those targets. Black Flag's getActionTargets() reads only canvas.tokens.controlled and carries a 'TODO: Alternatively fetch targeted tokens'; this fills that in.",
-  "version": "1.1.0",
+  "description": "When an activity places an area template, target every token inside it, and let the save/check buttons on a chat card roll against those targets. Black Flag's getActionTargets() reads only canvas.tokens.controlled and carries a 'TODO: Alternatively fetch targeted tokens'; this fills that in. Save/check links in text roll for targets too, and cube areas place properly.",
+  "version": "1.2.0",
   "compatibility": {
     "minimum": "14",
     "verified": "14"
