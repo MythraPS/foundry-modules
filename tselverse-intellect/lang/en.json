@@ -1,0 +1,40 @@
+{
+  "TSVIP": {
+    "Label": "Intellect",
+    "Error": {
+      "NoSystem": "Black Flag's trait helpers are not available, so the proficiency list cannot be built."
+    },
+    "Settings": {
+      "Mode": {
+        "Name": "How Intelligence buys proficiencies",
+        "Hint": "The rule as written gives a number of proficiencies equal to the Intelligence modifier, each costing one. The Intellect Points variant gives that many points instead, and a skill costs two of them while a tool, weapon or language costs one.",
+        "Flat": "Proficiencies — one each",
+        "Points": "Intellect Points — a skill costs two"
+      },
+      "Minimum": {
+        "Name": "Least a character may have",
+        "Hint": "A floor under the budget, for a table that does not want a low-Intelligence character to get nothing. Leave at 0 to follow the rule exactly."
+      }
+    },
+    "Sheet": {
+      "None": "No Intelligence proficiencies — this character's Intelligence modifier is not positive.",
+      "Unspent": "{n} to spend.",
+      "Remaining": "Choose {n} more",
+      "Done": "{n} chosen",
+      "Over": "{used} spent of {max} — over budget",
+      "Tooltip": "A positive Intelligence modifier grants extra proficiencies (skills, tools or languages). Click to choose them."
+    },
+    "Picker": {
+      "Title": "Intelligence Proficiencies — {name}",
+      "Open": "Choose Intelligence proficiencies",
+      "Search": "Search skills, tools, weapons and languages…",
+      "HintFlat": "Your Intelligence modifier is how many of these you may take. Each one costs one.",
+      "HintPoints": "Your Intelligence modifier is how many Intellect Points you have. A skill costs two; a tool, weapon or language costs one — those may need the GM's approval.",
+      "Spent": "{used} of {max} proficiencies",
+      "SpentPoints": "{used} of {max} Intellect Points",
+      "Already": "already proficient",
+      "Save": "Save",
+      "Cancel": "Cancel"
+    }
+  }
+}

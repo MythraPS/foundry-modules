@@ -1,0 +1,12 @@
+.chat-message .message-sender.rollport-sender { display: flex; align-items: center; gap: 0.4em; }
+.chat-message .rollport-img { width: var(--rollport-size, 28px); height: var(--rollport-size, 28px);
+  object-fit: cover; object-position: top; border-radius: 50%; border: 1px solid rgba(0,0,0,0.5); flex: none; }
+.rollport-dialog { display: flex; align-items: center; gap: 0.6em; margin: 0 0 0.5em; font-weight: 600; }
+.rollport-dialog img { width: 40px; height: 40px; object-fit: cover; object-position: top; border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.5); flex: none; }
+
+.rollport-targets { flex-wrap: wrap; font-weight: 400; margin-top: -0.2em; }
+.rollport-targets > span:first-child { font-weight: 600; }
+.rollport-target { display: inline-flex; align-items: center; gap: 0.3em; }
+.rollport-target img { width: 28px; height: 28px; }
+.rollport-hint { font-weight: 400; opacity: 0.85; }

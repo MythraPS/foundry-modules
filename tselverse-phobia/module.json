@@ -1,0 +1,18 @@
+{
+  "id": "tselverse-phobia",
+  "title": "Arachnophobia Cats",
+  "description": "Cats instead of spiders. In Configure Settings > Arachnophobia Cats, list the bug-like creatures by name (or right-click a creature in the Actors sidebar) and tick the users who should see cats (online or not). Those users see a cat picture instead of every token of a listed creature, on the map and in the combat tracker. Portraits and sheets are untouched, and everyone else sees the real token. Add or remove pictures in this module's cats folder.",
+  "version": "1.1.0",
+  "compatibility": {
+    "minimum": "14",
+    "verified": "14"
+  },
+  "authors": [
+    {
+      "name": "MythraPS"
+    }
+  ],
+  "esmodules": [
+    "scripts/main.mjs"
+  ]
+}

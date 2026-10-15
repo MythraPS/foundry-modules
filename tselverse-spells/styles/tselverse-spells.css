@@ -1,0 +1,415 @@
+/* Spell List - table on Black Flag stat blocks, plus the add / description windows. */
+
+.tsvsp-wrap {
+  margin: 0.4em 0 0.2em;
+}
+
+table.tsvsp-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--font-size-13, 13px);
+}
+
+table.tsvsp-table thead th {
+  text-align: left;
+  font-weight: 600;
+  opacity: 0.7;
+  font-size: 0.85em;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.15em 0.35em;
+  border-bottom: 1px solid var(--color-border-light-primary, rgba(0, 0, 0, 0.2));
+}
+
+table.tsvsp-table td {
+  padding: 0.2em 0.35em;
+  vertical-align: middle;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.15);
+}
+
+table.tsvsp-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+table.tsvsp-table .tsvsp-cast {
+  width: 1.8em;
+}
+
+.tsvsp-cast-button {
+  width: 1.7em;
+  height: 1.7em;
+  padding: 0;
+  line-height: 1;
+  border-radius: 3px;
+  cursor: pointer;
+  flex: none;
+}
+
+table.tsvsp-table .tsvsp-name a {
+  font-weight: 600;
+  cursor: pointer;
+}
+
+table.tsvsp-table .tsvsp-type-cell {
+  width: 3.2em;
+}
+
+table.tsvsp-table .tsvsp-uses {
+  width: 5em;
+  white-space: nowrap;
+}
+
+table.tsvsp-table .tsvsp-row-controls {
+  width: 1.6em;
+  text-align: right;
+}
+
+.tsvsp-type {
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+.tsvsp-dim {
+  opacity: 0.65;
+}
+
+.tsvsp-add-button {
+  margin-top: 0.3em;
+  font-size: var(--font-size-12, 12px);
+  cursor: pointer;
+}
+
+/* Spell names written in a Spellcasting trait */
+a.tsvsp-link {
+  cursor: pointer;
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+a.tsvsp-link.tsvsp-known {
+  text-decoration-style: solid;
+}
+
+a.tsvsp-link.tsvsp-missing {
+  text-decoration-style: dotted;
+  opacity: 0.85;
+}
+
+/* windows */
+.tsvsp-info .tsvsp-subtitle {
+  margin: 0 0 0.4em;
+  font-style: italic;
+  opacity: 0.8;
+}
+
+.tsvsp-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2em 1.2em;
+  margin: 0 0 0.6em;
+}
+
+.tsvsp-facts div {
+  display: flex;
+  gap: 0.4em;
+}
+
+.tsvsp-facts dt {
+  font-weight: 600;
+  opacity: 0.7;
+}
+
+.tsvsp-facts dd {
+  margin: 0;
+}
+
+.tsvsp-add .tsvsp-add-fields {
+  display: flex;
+  gap: 0.6em;
+  align-items: flex-end;
+}
+
+.tsvsp-add .tsvsp-add-fields label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15em;
+  flex: 1;
+  font-weight: 600;
+}
+
+.tsvsp-add .tsvsp-message {
+  margin: 0.5em 0 0.25em;
+}
+
+.tsvsp-add ul.tsvsp-results {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 11em;
+  overflow-y: auto;
+  border: 1px solid rgba(128, 128, 128, 0.3);
+  border-radius: 3px;
+}
+
+.tsvsp-add ul.tsvsp-results:empty {
+  display: none;
+}
+
+.tsvsp-add ul.tsvsp-results li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1em;
+  padding: 0.2em 0.45em;
+  cursor: pointer;
+}
+
+.tsvsp-add ul.tsvsp-results li:hover {
+  background: rgba(128, 128, 128, 0.18);
+}
+
+.tsvsp-add ul.tsvsp-results li.selected {
+  background: rgba(100, 149, 237, 0.28);
+}
+
+.tsvsp-add .tsvsp-preview {
+  margin-top: 0.5em;
+  max-height: 16em;
+  overflow-y: auto;
+}
+
+.tsvsp-add .tsvsp-preview h4 {
+  margin: 0 0 0.2em;
+}
+
+.tsvsp-add .tsvsp-web {
+  margin-top: 0.6em;
+  cursor: pointer;
+}
+
+/* --- Spell Manager tidy (the learn-spells dialog) --- */
+.tsvsp-spell-search {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin: 0 0 0.4em;
+}
+
+.tsvsp-spell-search input[type="search"] {
+  flex: 1;
+}
+
+.tsvsp-spell-search .tsvsp-count {
+  font-size: 0.8em;
+  opacity: 0.75;
+  white-space: nowrap;
+}
+
+.spell-list li.tsvsp-circle-head {
+  margin: 0.45em 0 0.15em;
+  padding: 0 0.2em;
+  font-weight: bold;
+  font-size: 0.85em;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  opacity: 0.8;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.35);
+  list-style: none;
+}
+
+.spell-list .name .tsvsp-sub {
+  display: block;
+  font-size: 0.75em;
+  opacity: 0.7;
+}
+
+/* --- talent / lineage / background pickers --- */
+.tsvsp-picker-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin: 0 0 0.5em;
+  padding: 0.2em 0;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  /* "inherit" came out transparent in the Select Heritage list, so cards scrolled up showed
+     through the sticky bar - a solid backdrop in the theme's own window colour */
+  background: var(--color-cool-5, #1b1d24);
+  box-shadow: 0 4px 6px -4px #000a;
+}
+
+/* Black Flag's own window styles make a select full width (the talent picker's sort menu took
+   the whole bar and left the search box a sliver), so these say it with more weight */
+.application .tsvsp-picker-bar input[type="search"] { flex: 1 1 auto; min-width: 12em; width: auto !important; }
+.application .tsvsp-picker-bar select { flex: 0 0 auto; width: auto !important; max-width: 40%; }
+/* search, usable, book and sort on one bar: it wraps on a narrow window rather than squeezing the search box */
+.tsvsp-picker-bar { flex-wrap: wrap; }
+.application .tsvsp-picker-bar select.tsvsp-book { max-width: 18em; }
+
+.tsvsp-picker-bar .tsvsp-count {
+  font-size: 0.8em;
+  opacity: 0.75;
+  white-space: nowrap;
+}
+
+/* Ctrl + Scroll zoom: the level readout that fades in over the window being scaled. */
+.tsvsp-zoom-badge {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  z-index: 100;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  color: #f0f0e0;
+  background: rgba(20, 20, 24, 0.82);
+  border: 1px solid rgba(240, 240, 224, 0.35);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 250ms ease-out;
+}
+.tsvsp-zoom-badge.visible { opacity: 1; }
+
+/* ---------------------------------------------------------------- GM Spellbook */
+.tsvsp-gmbook { display: flex; flex-direction: column; gap: 0.5rem; min-height: 0; }
+.tsvsp-gmbook .tsvsp-gm-row { display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap; }
+.tsvsp-gmbook .tsvsp-gm-row label { display: flex; gap: 0.35rem; align-items: center; white-space: nowrap; }
+.tsvsp-gmbook .tsvsp-gm-search { flex: 1; }
+.tsvsp-gmbook .tsvsp-gm-caster { min-width: 12em; }
+.tsvsp-gmbook .tsvsp-gm-dc { width: 5em; }
+.tsvsp-gmbook .tsvsp-results { flex: 0 1 auto; max-height: 220px; overflow-y: auto; }
+/* (the preview keeps its height and the window scrolls: squeezed, it vanished under an open paste box) */
+.tsvsp-gmbook { overflow-y: auto; overflow-x: hidden; }   /* (sideways, a full-width textarea shifted it all left) */
+.tsvsp-gmbook details.tsvsp-paste textarea, .tsvsp-add details.tsvsp-paste textarea { box-sizing: border-box; max-width: 100%; }
+.tsvsp-gmbook .tsvsp-preview { flex: 0 0 auto; }
+.tsvsp-gmbook .tsvsp-preview h4 { margin: 0.4em 0 0.2em; }
+.tsvsp-gmbook ul.tsvsp-results:empty { display: none; }
+.tsvsp-gmbook .tsvsp-gm-atk { width: 5em; }
+
+/* paste spell text (add dialog) */
+.tsvsp-add details.tsvsp-paste,
+.tsvsp-gmbook details.tsvsp-paste { margin: 6px 0; }
+.tsvsp-add details.tsvsp-paste summary,
+.tsvsp-gmbook details.tsvsp-paste summary { cursor: pointer; font-weight: 600; }
+.tsvsp-add details.tsvsp-paste textarea,
+.tsvsp-gmbook details.tsvsp-paste textarea { width: 100%; min-height: 9em; font-family: inherit; resize: vertical; }
+.tsvsp-add details.tsvsp-paste label,
+.tsvsp-gmbook details.tsvsp-paste label { display: flex; gap: 8px; align-items: center; margin-top: 4px; }
+.tsvsp-add ul.tsvsp-warnings,
+.tsvsp-gmbook ul.tsvsp-warnings { margin: 4px 0 0 1.2em; font-size: 0.9em; }
+.tsvsp-add ul.tsvsp-warnings:empty,
+.tsvsp-gmbook ul.tsvsp-warnings:empty { display: none; }
+
+/* resize from any edge (scripts/main.mjs): grab strips just inside the window's border - inside,
+   because the window clips anything past its own box */
+.application > .tsvsp-edge { position: absolute; z-index: 30; }
+.application > .tsvsp-edge-n, .application > .tsvsp-edge-s { left: 10px; right: 10px; height: 6px; cursor: ns-resize; }
+.application > .tsvsp-edge-n { top: 0; }
+.application > .tsvsp-edge-s { bottom: 0; }
+.application > .tsvsp-edge-e, .application > .tsvsp-edge-w { top: 10px; bottom: 10px; width: 6px; cursor: ew-resize; }
+.application > .tsvsp-edge-e { right: 0; }
+.application > .tsvsp-edge-w { left: 0; }
+.application > .tsvsp-edge-ne, .application > .tsvsp-edge-nw, .application > .tsvsp-edge-se, .application > .tsvsp-edge-sw { width: 12px; height: 12px; }
+.application > .tsvsp-edge-ne { top: 0; right: 0; cursor: nesw-resize; }
+.application > .tsvsp-edge-sw { bottom: 0; left: 0; cursor: nesw-resize; }
+.application > .tsvsp-edge-nw { top: 0; left: 0; cursor: nwse-resize; }
+/* Foundry's own corner handle stays usable underneath */
+.application > .tsvsp-edge-se { bottom: 0; right: 0; cursor: nwse-resize; width: 8px; height: 8px; }
+.tsvsp-picker-bar.tsvsp-picker-bar-above { position: static; margin: 0 0 0.5em; }
+
+/* learn-spells window: books / roles bar */
+.tsvsp-spellbar { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4em 0.8em; margin: 0 0 0.5em; }
+.tsvsp-spellbar .tsvsp-group { display: flex; flex-wrap: wrap; gap: 0.25em; }
+.tsvsp-spellbar button { flex: 0 0 auto; width: auto; padding: 0.1em 0.6em; font-size: 0.85em; line-height: 1.6; }
+.tsvsp-spellbar button.on { background: var(--color-warm-2, #c9593f); color: #fff; }
+.tsvsp-spellbar .tsvsp-count { margin-left: auto; font-size: 0.85em; opacity: 0.8; }
+/* GM spell list */
+.tsvsp-spell-list .window-content { overflow: auto; }
+.tsvsp-sl-filters { display: flex; gap: 0.5em; align-items: center; margin-bottom: 0.5em; position: sticky; top: 0; background: var(--color-cool-5, #1b1d24); padding: 0.3em 0; z-index: 1; }
+.tsvsp-sl-filters input[type=search] { flex: 1; }
+.tsvsp-sl table { width: 100%; border-collapse: collapse; font-size: 0.9em; }
+.tsvsp-sl td, .tsvsp-sl th { padding: 2px 6px; border-bottom: 1px solid #ffffff14; text-align: left; }
+.tsvsp-sl tr.weak td { background: #c9593f22; }
+.tsvsp-sl .why { font-size: 0.8em; opacity: 0.8; }
+.tsvsp-sl a[data-uuid] { cursor: pointer; text-decoration: underline; }
+
+/* duplicate spells hidden in a compendium window (an !important beats the search filter's inline display) */
+.tsvsp-dupe { display: none !important; }
+.tsvsp-dupe-note { margin: 4px 8px; font-size: var(--font-size-12, 12px); opacity: 0.75; flex: none; }
+
+/* Ticked radio buttons and checkboxes, everywhere: Foundry draws a ticked radio as a dot-in-circle
+ * whose dot is transparent, so on a dark sheet it looks almost the same as an empty one. Ticked
+ * now = a solid coloured shape (::after) with a bold white X on top (::before). */
+input[type="radio"]:checked::after,
+input[type="checkbox"]:checked::after {
+  content: "\f111";
+  font-family: var(--font-awesome);
+  font-weight: 900;
+  /* a fixed colour: on one player's Firefox the theme variable came out light grey (rgb 220) and a
+     ticked radio looked exactly like an empty one (equipment selection, 2026-10-04) */
+  color: #e07b2a !important;
+}
+input[type="checkbox"]:checked::after { content: "\f0c8"; }
+input[type="radio"]:checked::before,
+input[type="checkbox"]:checked::before {
+  content: "\f00d";
+  font-family: var(--font-awesome);
+  font-weight: 900;
+  color: #fff !important;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  text-align: center;
+  font-size: calc(var(--checkbox-size, 20px) * 0.7);
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.8);
+}
+input[type="radio"]:checked:disabled::after,
+input[type="checkbox"]:checked:disabled::after { color: #8a6a4a !important; }
+
+/* title-bar zoom buttons: − / 100% / + */
+.tsvsp-zoom-controls { display: inline-flex; align-items: center; gap: 2px; margin-inline-end: 4px; flex: none; }
+.tsvsp-zoom-controls .tsvsp-zoom-level {
+  font-size: var(--font-size-11, 11px); min-width: 3.2em; padding: 0 2px; text-align: center;
+  background: none; border: none; color: inherit; cursor: pointer; opacity: 0.8;
+}
+.tsvsp-zoom-controls .tsvsp-zoom-level:hover { opacity: 1; text-decoration: underline; }
+
+/* Select Class / Subclass: Black Flag lays the cards out in ONE row that scrolls sideways, in a
+   content box capped at min(1400px, 75vw) and fixed at 800px tall - so dragging the window wider
+   or taller showed no more classes, just empty window (2026-10-09). The cards wrap into rows
+   instead and the box scrolls up and down; once the window has a size of its own (Foundry writes
+   width/height onto it only after a resize by hand), the box fills it. A freshly opened window
+   keeps the system's cap, since its auto width is measured from the content. */
+.concept-selection-dialog:is(.class, .subclass) .window-content {
+  overflow-x: hidden !important;
+  overflow-inline: hidden !important;
+  overflow-y: auto !important;
+}
+.concept-selection-dialog:is(.class, .subclass) .window-content > div:not(.tsvsp-picker-bar) {
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.concept-selection-dialog:is(.class, .subclass) .window-content > div > .option { flex: 0 0 var(--entry-size); }
+.concept-selection-dialog:is(.class, .subclass)[style*="width:"] .window-content {
+  max-inline-size: none !important;
+}
+.concept-selection-dialog:is(.class, .subclass)[style*="height:"] .window-content {
+  block-size: auto !important;
+  flex: 1 1 auto;
+  min-block-size: 0 !important;
+}
+.concept-selection-dialog:is(.class, .subclass) .tsvsp-picker-bar.tsvsp-picker-bar-above {
+  position: sticky; top: 0;
+}
+
+/* The book-and-page badge ("Steinhardt's Guide ... pg. 126") sat on the top of the poster on class/subclass
+   cards and sheets and covered the art (2026-10-09): it goes under the name, inside the banner. */
+:is(.concept-selection-dialog:is(.class, .subclass) .option, .black-flag.concept.sheet .summary) .poster .source {
+  top: auto !important; right: 0 !important; left: 0 !important; bottom: 18px !important;
+  margin-inline: auto; inline-size: max-content; max-inline-size: 88%;
+  background: none !important; -webkit-backdrop-filter: none !important; backdrop-filter: none !important;
+  text-align: center !important; font-size: var(--font-size-11, 11px); opacity: 0.75; z-index: 2;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}

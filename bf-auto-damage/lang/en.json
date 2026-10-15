@@ -1,0 +1,29 @@
+{
+  "BFAD": {
+    "Settings": {
+      "Enabled": {
+        "Name": "Roll damage automatically on a hit",
+        "Hint": "After an attack roll, roll that attack's damage if it hit at least one targeted token. Misses roll nothing."
+      },
+      "AutoApply": {
+        "Name": "Apply damage automatically",
+        "Hint": "Apply the rolled damage to every target that was hit, respecting resistances, immunities and vulnerabilities. Turn off to apply it yourself from the damage card (for example to halve it)."
+      },
+      "NoTarget": {
+        "Name": "Roll damage when nothing is targeted",
+        "Hint": "With no targeted tokens a hit can't be judged. On: roll the damage anyway so you can apply it by hand. Off: roll nothing."
+      },
+      "Hold": {
+        "Name": "Hold my rolls for review",
+        "Hint": "Every roll you make for others to see (attacks, damage, saves, checks, initiative, table draws) is shown to you only, with Reroll, Confirm and Discard; you can also change the result. Players see nothing, not even a private roll, until you confirm. Attacks get one card for the attack and its damage. Rolls you make private yourself pass through as usual. Off: your rolls go straight through."
+      },
+      "Crits": {
+        "Name": "Roll on the critical hit and failure tables",
+        "Hint": "On a critical hit or critical failure of an attack roll, draw from the house tables in the folder Critical Hits and Failures: Tables 1 and 2 for player characters' weapon attacks, 3 and 4 for their spell attacks, 5 and 6 for everyone else. Your own draws are held for review like your other rolls."
+      }
+    },
+    "Notify": {
+      "NoPermission": "Auto Damage: you can't change {name}'s hit points, so the damage was rolled but not applied."
+    }
+  }
+}

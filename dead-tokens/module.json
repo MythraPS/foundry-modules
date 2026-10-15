@@ -1,0 +1,10 @@
+{
+  "id": "dead-tokens",
+  "title": "Dead Tokens",
+  "description": "Makes a dead creature's token look dead: faded, drained of colour, with a skull drawn across the whole token instead of a small corner icon, and drawn underneath living tokens. Creatures are marked dead automatically when their hit points reach 0, and revived when healed.",
+  "version": "1.0.0",
+  "compatibility": { "minimum": "14", "verified": "14" },
+  "authors": [{ "name": "MythraPS" }],
+  "esmodules": ["dead-tokens.mjs"],
+  "languages": [{ "lang": "en", "name": "English", "path": "lang/en.json" }]
+}

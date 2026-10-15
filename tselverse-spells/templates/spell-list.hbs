@@ -1,0 +1,28 @@
+<div class="tsvsp-sl">
+  <p class="hint">Ticked spells are hidden from players' learn-spells window. They stay in the compendiums, and spells a character already knows are not touched. <b class="tsvsp-hidden-count">{{hiddenCount}}</b> hidden.</p>
+  <div class="tsvsp-sl-filters">
+    <input type="search" name="q" value="{{q}}" placeholder="Search spells…">
+    <select name="circle">{{#each circles as |c|}}<option value="{{c.v}}" {{#if c.sel}}selected{{/if}}>{{c.label}}</option>{{/each}}</select>
+    <select name="book"><option value="">Any book</option>{{#each books as |b|}}<option value="{{b}}" {{#if (eq ../book b)}}selected{{/if}}>{{b}}</option>{{/each}}</select>
+    <select name="only">
+      <option value="all" {{#if (eq only "all")}}selected{{/if}}>All</option>
+      <option value="weak" {{#if (eq only "weak")}}selected{{/if}}>Flagged as weak</option>
+      <option value="hidden" {{#if (eq only "hidden")}}selected{{/if}}>Hidden</option>
+      <option value="shown" {{#if (eq only "shown")}}selected{{/if}}>Shown</option>
+    </select>
+    <span class="dim">{{total}} spells</span>
+  </div>
+  <table>
+    <thead><tr><th>Hide</th><th>Spell</th><th>Circle</th><th>Book</th><th>Roles</th></tr></thead>
+    <tbody>
+      {{#each rows as |r|}}
+      <tr class="{{#if r.weak}}weak{{/if}}">
+        <td><input type="checkbox" data-hide="{{r.id}}" {{#if r.hidden}}checked{{/if}}></td>
+        <td><a data-uuid="{{r.uuid}}">{{r.n}}</a>{{#if r.weak}}<div class="why">{{r.weak}}</div>{{/if}}</td>
+        <td>{{r.circleLabel}}</td><td>{{r.book}}</td><td class="dim">{{r.roles}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  {{#if more}}<p class="dim">…and {{more}} more - narrow the search to see them.</p>{{/if}}
+</div>

@@ -1,0 +1,28 @@
+{
+  "id": "tselverse-notes",
+  "title": "Creature Journals",
+  "description": "A book button in the Token HUD (right-click a token) that opens a journal belonging to that creature. GM only: players never see the button, and the journals are hidden from them unless the GM shows one. Each creature type gets a shared journal, and any single token can have its own; the button opens the token's own if it has one, otherwise the creature type's, and creates the first one on demand in a 'Creature Journals' folder.",
+  "version": "1.1.0",
+  "compatibility": {
+    "minimum": "14",
+    "verified": "14"
+  },
+  "authors": [
+    {
+      "name": "MythraPS"
+    }
+  ],
+  "esmodules": [
+    "scripts/main.mjs"
+  ],
+  "styles": [
+    "styles/tselverse-notes.css"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ]
+}

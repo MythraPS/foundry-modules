@@ -1,0 +1,12 @@
+{
+  "id": "action-labels",
+  "title": "Action Type Labels",
+  "description": "Labels every ability in a Black Flag NPC stat block with what kind of ability it is - Action, Bonus Action, Reaction, Free Action, Passive Effect, Legendary Action or Lair Action - either as short tags (A, BA, RA, FA, PE, LA, LrA) or written out in full. Display only: nothing on the creature is changed, so switching styles takes effect immediately.",
+  "version": "1.0.0",
+  "compatibility": { "minimum": "14", "verified": "14" },
+  "authors": [{ "name": "MythraPS" }],
+  "relationships": { "systems": [{ "id": "black-flag", "type": "system" }] },
+  "esmodules": ["action-labels.mjs"],
+  "styles": ["action-labels.css"],
+  "languages": [{ "lang": "en", "name": "English", "path": "lang/en.json" }]
+}

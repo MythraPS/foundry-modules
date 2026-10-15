@@ -1,0 +1,36 @@
+{
+  "id": "tselverse-intellect",
+  "title": "Intelligence Proficiencies",
+  "description": "The Dungeon Coach's Intelligence Proficiencies house rule for Black Flag: a character gains additional proficiencies equal to their Intelligence modifier, spent on skills, tools, weapons or languages. Two modes - the rule as written, where every proficiency costs one, and the Intellect Points variant, where a skill costs two points and a tool, weapon or language costs one. The budget follows the character's Intelligence, so raising INT with an ability score increase grants another pick. Picks are layered on through the system's own advancement pipeline, so nothing is written into the character's stored proficiencies and un-picking one takes the proficiency away cleanly.",
+  "version": "1.1.0",
+  "compatibility": {
+    "minimum": "14",
+    "verified": "14"
+  },
+  "authors": [
+    {
+      "name": "MythraPS"
+    }
+  ],
+  "relationships": {
+    "systems": [
+      {
+        "id": "black-flag",
+        "type": "system"
+      }
+    ]
+  },
+  "esmodules": [
+    "scripts/main.mjs"
+  ],
+  "styles": [
+    "styles/tselverse-intellect.css"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+/* Set Level - the level box beside Black Flag's Level Up button. */
+
+.tsvsl-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+  margin-inline-start: 0.6em;
+  white-space: nowrap;
+}
+
+.tsvsl-box .tsvsl-label {
+  font-size: var(--font-size-12, 12px);
+  opacity: 0.75;
+}
+
+.tsvsl-box .tsvsl-input {
+  width: 3.2em;
+  text-align: center;
+  padding: 0 0.2em;
+}
+
+.tsvsl-box .tsvsl-go {
+  cursor: pointer;
+}
+
+.tsvsl-box .tsvsl-go[disabled] {
+  opacity: 0.5;
+  cursor: progress;
+}
+
+/* "N levels need hit points: Take averages or Roll them all" */
+.tsvsl-hp {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  margin-inline-start: 0.8em;
+  font-size: var(--font-size-12, 12px);
+  white-space: nowrap;
+}
+
+.tsvsl-hp button {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.tsvsl-hp button[disabled] {
+  opacity: 0.5;
+  cursor: progress;
+}
+
+.tsvsl-hp .tsvsl-or {
+  opacity: 0.6;
+}
+
+/* typing a level's hit points by hand */
+.tsvsl-hp-edit {
+  display: inline-flex;
+  align-items: center;
+  margin-inline-start: 0.4em;
+}
+
+.tsvsl-hp-edit input {
+  width: 3.4em;
+  text-align: center;
+  padding: 0 0.2em;
+}

@@ -1,0 +1,25 @@
+{
+  "id": "tselverse-scene-preview",
+  "title": "Show Map in Files",
+  "description": "Right-click a scene (in a compendium or the Scenes tab) -> Show map in Files: your file manager opens with that scene's map image selected. Needs the foundry-reveal helper running on the computer Foundry runs on (it only shows files inside Foundry's Data folder). Without it, the map's path is copied instead.",
+  "version": "2.0.0",
+  "compatibility": {
+    "minimum": "14",
+    "verified": "14"
+  },
+  "authors": [
+    {
+      "name": "MythraPS"
+    }
+  ],
+  "esmodules": [
+    "scripts/main.mjs"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ]
+}

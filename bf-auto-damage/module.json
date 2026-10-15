@@ -1,0 +1,33 @@
+{
+  "id": "bf-auto-damage",
+  "title": "Auto Damage, Roll Review and Crit Tables (Black Flag)",
+  "description": "When an attack roll hits a targeted token, rolls the attack's damage automatically (doubling dice on a critical hit) and optionally applies it to every target that was hit, respecting resistances and immunities. Misses roll nothing. Uses Black Flag's own blackFlag.postRollAttack hook, the same hit rule as the attack card (critical success, or total >= AC without a critical failure) and the same damage aggregation as the damage card's Apply tray. Also holds every roll the GM makes for review (Reroll, Confirm, Discard, editable results) before players see it, and draws from the house critical hit and failure tables on a critical.",
+  "version": "1.2.0",
+  "compatibility": {
+    "minimum": "14",
+    "verified": "14"
+  },
+  "authors": [
+    {
+      "name": "MythraPS"
+    }
+  ],
+  "relationships": {
+    "systems": [
+      {
+        "id": "black-flag",
+        "type": "system"
+      }
+    ]
+  },
+  "esmodules": [
+    "bf-auto-damage.mjs"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ]
+}

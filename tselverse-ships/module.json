@@ -1,0 +1,13 @@
+{
+  "id": "tselverse-ships",
+  "title": "Ship Bridge (Dark Matter)",
+  "description": "Ship combat from Dark Matter Sci-Fi 5E on Black Flag vehicle sheets: a Bridge window with the four Crew Roles and their actions (Captain, Engineer, Gunner, Pilot), Shield Points that recharge each round and cover one side of the ship, Explosion Saving Throws at 0 Mega Hit Points, and the cone of movement drawn on the map. The three new skills are played as skills the sheet has: Technology is Arcana, Piloting is Survival, Data is History.",
+  "version": "1.0.0",
+  "compatibility": {"minimum": "14", "verified": "14"},
+  "authors": [{"name": "MythraPS"}],
+  "relationships": {"systems": [{"id": "black-flag", "type": "system"}]},
+  "esmodules": ["scripts/main.mjs"],
+  "styles": ["styles/tselverse-ships.css"],
+  "socket": true,
+  "languages": [{"lang": "en", "name": "English", "path": "lang/en.json"}]
+}

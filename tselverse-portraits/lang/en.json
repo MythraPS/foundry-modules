@@ -1,0 +1,7 @@
+{
+  "TSVPORT": {
+    "FixPicture": "Fix picture (foundry-import)",
+    "FixPictureTip": "Fix picture: opens foundry-import to choose another picture or reframe the token; the change shows here straight away.",
+    "NoDoc": "Couldn't tell which document this picture belongs to."
+  }
+}

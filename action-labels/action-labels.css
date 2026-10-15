@@ -1,0 +1,8 @@
+blackflag-actions .actlbl-tag {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 0.8em;
+  opacity: 0.75;
+  margin-left: 0.3em;
+  white-space: nowrap;
+}

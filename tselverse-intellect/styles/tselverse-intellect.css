@@ -1,0 +1,148 @@
+/* Intelligence Proficiencies - the sheet fieldset and the picker.
+ * The fieldset borrows the system's own proficiency-block look rather than inventing one,
+ * so it reads as part of the left column instead of an add-on. */
+
+fieldset.tsvip > legend {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+fieldset.tsvip .tsvip-count {
+  margin-inline-start: auto;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.75;
+}
+
+fieldset.tsvip .tsvip-count.tsvip-over {
+  color: var(--bf-color-negative, #b03030);
+  font-weight: bold;
+  opacity: 1;
+}
+
+fieldset.tsvip .tsvip-list {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 0.25rem;
+}
+
+fieldset.tsvip .tsvip-list li {
+  padding-block: 1px;
+}
+
+fieldset.tsvip .tsvip-empty {
+  margin: 0;
+  padding-inline: 0.25rem;
+  font-size: var(--font-size-12, 12px);
+  opacity: 0.7;
+}
+
+/* ---------------------------------------------------------------- the picker */
+
+.tsvip-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-height: 0;
+}
+
+.tsvip-picker .tsvip-head {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.tsvip-picker .tsvip-spent {
+  font-weight: bold;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.tsvip-picker .tsvip-spent.tsvip-over { color: var(--bf-color-negative, #b03030); }
+
+.tsvip-picker .tsvip-search { flex: 1; }
+
+.tsvip-picker .tsvip-hint {
+  margin: 0;
+  font-size: var(--font-size-12, 12px);
+  opacity: 0.75;
+}
+
+.tsvip-picker .tsvip-groups {
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 0 1rem;
+  align-items: start;
+}
+
+.tsvip-picker .tsvip-group h4 {
+  margin: 0.5rem 0 0.25rem;
+  border-bottom: 1px solid currentColor;
+  opacity: 0.85;
+}
+
+.tsvip-picker .tsvip-group ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tsvip-picker .tsvip-group li label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding-block: 1px;
+  cursor: pointer;
+}
+
+.tsvip-picker .tsvip-group li.tsvip-had label,
+.tsvip-picker .tsvip-group li.tsvip-unaffordable label {
+  cursor: default;
+  opacity: 0.45;
+}
+
+.tsvip-picker .tsvip-label { flex: 1; }
+
+.tsvip-picker .tsvip-cost {
+  min-width: 1.4em;
+  padding-inline: 0.3em;
+  border-radius: 0.7em;
+  text-align: center;
+  font-size: var(--font-size-11, 11px);
+  background: rgba(128, 128, 128, 0.25);
+}
+
+.tsvip-picker .tsvip-note {
+  font-size: var(--font-size-11, 11px);
+  font-style: italic;
+}
+
+/* ---------------------------------------------------------------- progression view
+ * Built to sit in the same column as Lineage / Heritage / Background, so it copies their
+ * shape: an icon, a line you can click, and the count on the right. */
+
+fieldset.tsvip-progression .icon {
+  display: grid;
+  place-items: center;
+  margin: 0;
+  font-size: 1.4em;
+  opacity: 0.8;
+}
+
+fieldset.tsvip-progression .tsvip-picks {
+  display: block;
+  font-size: var(--font-size-11, 11px);
+  opacity: 0.7;
+}
+
+fieldset.tsvip-progression .tsvip-count {
+  font-variant-numeric: tabular-nums;
+  opacity: 0.75;
+}
+
+fieldset.tsvip-progression .tsvip-count.tsvip-over {
+  color: var(--bf-color-negative, #b03030);
+  font-weight: bold;
+  opacity: 1;
+}

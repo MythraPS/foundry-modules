@@ -1,0 +1,11 @@
+{
+  "id": "tselverse-treasure",
+  "title": "Shared Treasure",
+  "description": "A party stash everyone can open (coins button in the token tools, or the Shared Treasure button at the top of the Items sidebar). The GM and the players drag items into it; anyone can take an item onto their character. A player can claim an item ('I want this'), or mark it 'if no one needs it' to say they'd take it only if nobody claims it. Works with no GM online.",
+  "version": "1.0.0",
+  "compatibility": {"minimum": "14", "verified": "14"},
+  "authors": [{"name": "MythraPS"}],
+  "relationships": {"systems": [{"id": "black-flag", "type": "system"}]},
+  "esmodules": ["scripts/main.mjs"],
+  "styles": ["styles/tselverse-treasure.css"]
+}

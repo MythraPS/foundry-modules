@@ -1,0 +1,36 @@
+{
+  "id": "tselverse-shops",
+  "title": "Tselverse Shops",
+  "description": "Item Piles merchants open on a category browser (category, then sub-category) instead of one long alphabetical list, and sort cheapest first by default. GMs get an Add items picker (search every item compendium, filter, tick, add) and Shop Stock roll tables for Populate Items.",
+  "version": "1.1.0",
+  "authors": [
+    {
+      "name": "Mythra PS"
+    }
+  ],
+  "compatibility": {
+    "minimum": "13",
+    "verified": "14"
+  },
+  "relationships": {
+    "requires": [
+      {
+        "id": "item-piles",
+        "type": "module"
+      }
+    ]
+  },
+  "esmodules": [
+    "scripts/main.mjs"
+  ],
+  "styles": [
+    "styles/shops.css"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+.tsvtreasure .window-content { padding: 0.6rem; display: flex; flex-direction: column; gap: 0.5rem; overflow-y: auto; }
+.tsvtreasure .hint { margin: 0; font-size: 0.85em; opacity: 0.8; }
+.tsvtreasure .top { display: flex; align-items: center; gap: 0.5rem; }
+.tsvtreasure .top select { width: auto; flex: 0 1 auto; }
+.tsvtreasure .top input[type=search] { flex: 1; }
+.tsvtreasure ul.loot { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.3rem; }
+.tsvtreasure ul.loot li { border: 1px solid var(--color-border, #555); border-radius: 6px; padding: 0.3rem 0.4rem; display: grid; grid-template-columns: 36px 1fr auto; gap: 0.15rem 0.5rem; align-items: center; }
+.tsvtreasure ul.loot li.mine { border-color: #3f9a5a; }
+.tsvtreasure ul.loot li.theirs { border-color: #c9903f; }
+.tsvtreasure ul.loot img { width: 36px; height: 36px; border: none; border-radius: 4px; object-fit: cover; grid-row: span 2; cursor: pointer; }
+.tsvtreasure ul.loot .name { font-weight: bold; cursor: pointer; }
+.tsvtreasure ul.loot .name small { font-weight: normal; opacity: 0.75; margin-left: 0.4em; }
+.tsvtreasure ul.loot .acts { display: flex; gap: 0.25rem; flex-wrap: wrap; justify-content: flex-end; grid-row: span 2; }
+.tsvtreasure ul.loot .acts button { width: auto; flex: 0 0 auto; padding: 0 0.55em; line-height: 1.7; }
+.tsvtreasure ul.loot .acts button.on { background: #2f7fa8; color: #fff; }
+.tsvtreasure ul.loot .who { font-size: 0.85em; opacity: 0.9; }
+.tsvtreasure ul.loot .who .need { color: #d9a441; }
+.tsvtreasure ul.loot .who .spare { opacity: 0.8; font-style: italic; }
+.tsvtreasure .drop { border: 2px dashed var(--color-border, #555); border-radius: 8px; padding: 0.6rem; text-align: center; opacity: 0.8; }
+.tsvtreasure .window-content.over .drop { border-color: #2f7fa8; opacity: 1; }
+.tsvtreasure-open { margin: 0.3rem 0.5rem; }

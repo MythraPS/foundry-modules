@@ -1,0 +1,33 @@
+{
+  "id": "tselverse-common",
+  "title": "Everyone Speaks Common",
+  "description": "House rule for Black Flag: every player character speaks Common, and so does every NPC that speaks any language at all. Creatures with no language, creatures that can't speak, and creatures that already speak all languages are left alone. Applied when the sheet is prepared, so nothing is written into actors or compendiums; turn either half off in the module settings.",
+  "version": "1.6.0",
+  "compatibility": {
+    "minimum": "14",
+    "verified": "14"
+  },
+  "authors": [
+    {
+      "name": "MythraPS"
+    }
+  ],
+  "relationships": {
+    "systems": [
+      {
+        "id": "black-flag",
+        "type": "system"
+      }
+    ]
+  },
+  "esmodules": [
+    "scripts/main.mjs"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ]
+}

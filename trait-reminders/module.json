@@ -1,0 +1,10 @@
+{
+  "id": "trait-reminders",
+  "title": "Trait Reminders",
+  "description": "Whispers the GM a reminder when a monster's passive trait should trigger: auras when a hostile creature starts or ends its turn in range (naming who is affected), traits that fire at the start or end of the monster's own turn, traits that fire when the monster kills something, and traits that fire when it takes damage. The trait's text is included, so any save it calls for can be rolled straight from the reminder. It never applies anything by itself.",
+  "version": "1.0.0",
+  "compatibility": { "minimum": "14", "verified": "14" },
+  "authors": [{ "name": "MythraPS" }],
+  "esmodules": ["trait-reminders.mjs"],
+  "languages": [{ "lang": "en", "name": "English", "path": "lang/en.json" }]
+}

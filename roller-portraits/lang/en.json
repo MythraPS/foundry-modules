@@ -1,0 +1,25 @@
+{
+  "ROLLPORT": {
+    "Settings": {
+      "Image": {
+        "Name": "Picture to show",
+        "Hint": "The character's portrait, or the token artwork used on the map.",
+        "Portrait": "Portrait",
+        "Token": "Token artwork"
+      },
+      "Size": {
+        "Name": "Picture size in chat",
+        "Hint": "Height of the picture in chat message headers, in pixels."
+      },
+      "Dialog": {
+        "Name": "Show in roll dialogs",
+        "Hint": "Add the roller's picture and name to the top of Black Flag's roll configuration dialogs."
+      }
+    },
+    "Rolling": "Rolling as {name}",
+    "Targeting": "Targeting:",
+    "TargetingCount": "Targeting ({n}/{max}):",
+    "PickOne": "Click a token on the map to target it.",
+    "PickMany": "Click up to {n} tokens on the map to target them; click again to untarget."
+  }
+}

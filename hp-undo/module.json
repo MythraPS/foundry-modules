@@ -1,0 +1,10 @@
+{
+  "id": "hp-undo",
+  "title": "Undo Damage (Ctrl+Z)",
+  "description": "Ctrl+Z reverses the last hit point change - damage, healing or temp HP - and Ctrl+Y / Ctrl+Shift+Z re-applies it. Works with automatic damage, the Apply tray, right-click damage menus and hand edits on a sheet. When there is no hit point change left to undo the keypress falls through to Foundry's own canvas undo, so it never gets in the way.",
+  "version": "1.0.0",
+  "compatibility": { "minimum": "14", "verified": "14" },
+  "authors": [{ "name": "MythraPS" }],
+  "esmodules": ["hp-undo.mjs"],
+  "languages": [{ "lang": "en", "name": "English", "path": "lang/en.json" }]
+}

@@ -1,0 +1,8 @@
+{
+  "TSVCOMMON.Settings.PCs.Name": "Every player character speaks Common",
+  "TSVCOMMON.Settings.PCs.Hint": "Adds Common to every player character's languages, whatever their lineage, heritage and background gave them.",
+  "TSVCOMMON.Settings.NPCs.Name": "NPCs that speak a language also speak Common",
+  "TSVCOMMON.Settings.NPCs.Hint": "Adds Common to any NPC that speaks at least one language. Creatures with no language, creatures that can't speak (\"understands ... but can't speak\"), and creatures that already speak all languages are left as they are.",
+  "TSVCOMMON.Settings.RestoreLost.Name": "Show compendium creatures' lost languages",
+  "TSVCOMMON.Settings.RestoreLost.Hint": "The Kobold Press monsters store their languages where Black Flag doesn't look, so their sheets list none. Ticked, the languages are read from the compendium and shown."
+}

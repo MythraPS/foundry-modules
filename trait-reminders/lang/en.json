@@ -1,0 +1,42 @@
+{
+  "TRAITREM": {
+    "Settings": {
+      "Auras": {
+        "Name": "Aura reminders",
+        "Hint": "Remind when a hostile creature starts or ends its turn within range of a trait such as Shifting Form."
+      },
+      "OwnTurn": {
+        "Name": "Own-turn reminders",
+        "Hint": "Remind about traits that trigger at the start or end of the monster's own turn."
+      },
+      "OnKill": {
+        "Name": "On-kill reminders",
+        "Hint": "Remind about traits such as Soul Devourer when a creature drops to 0 hit points during the monster's turn."
+      },
+      "OnDamaged": {
+        "Name": "When-damaged reminders",
+        "Hint": "Remind about traits that trigger when the monster takes damage."
+      },
+      "Reactions": {
+        "Name": "Reaction reminders",
+        "Hint": "Remind when a monster's reaction could be used: targeted by an attack, an attack misses it, hit in melee, takes damage, or a creature nearby dies or is healed. Skipped when the monster has already used its reaction (Black Flag QOL's Reaction Used effect), has no uses left, or is dead."
+      }
+    },
+    "Title": "Trait reminder",
+    "Aura": "{creature} starts its turn within {range} ft of {holder}",
+    "AuraEnd": "{creature} ends its turn within {range} ft of {holder}",
+    "OwnStart": "Start of {holder}'s turn",
+    "OwnEnd": "End of {holder}'s turn",
+    "OnKill": "{victim} dropped to 0 HP on {holder}'s turn",
+    "OnDamaged": "{holder} took damage",
+    "ReactionTitle": "Reaction available",
+    "R": {
+      "Targeted": "{attacker} attacked {holder}",
+      "Missed": "{attacker}'s attack missed {holder}",
+      "MeleeHit": "{attacker} hit {holder} in melee from {dist} ft",
+      "Damaged": "{holder} took damage",
+      "Died": "{victim} dropped to 0 HP {dist} ft from {holder}",
+      "Healed": "{target} regained hit points {dist} ft from {holder}"
+    }
+  }
+}

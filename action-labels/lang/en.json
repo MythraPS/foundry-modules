@@ -1,0 +1,10 @@
+{
+  "ACTLBL": {
+    "Settings": {
+      "Style": { "Name": "Label style", "Hint": "Short tags (A, BA, RA, FA, PE) or full names (Action, Bonus Action, Reaction, Free Action, Passive Effect). Off hides the labels.",
+                 "Short": "Short (A, BA, RA, FA, PE)", "Long": "Full (Action, Bonus Action, ...)", "Off": "Off" }
+    },
+    "Short": { "action": "A", "bonus": "BA", "reaction": "RA", "free": "FA", "passive": "PE", "legendary": "LA", "lair": "LrA", "other": "" },
+    "Long": { "action": "Action", "bonus": "Bonus Action", "reaction": "Reaction", "free": "Free Action", "passive": "Passive Effect", "legendary": "Legendary Action", "lair": "Lair Action", "other": "" }
+  }
+}

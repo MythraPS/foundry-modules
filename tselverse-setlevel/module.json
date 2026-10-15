@@ -1,0 +1,12 @@
+{
+  "id": "tselverse-setlevel",
+  "title": "Set Level",
+  "description": "Adds a level box beside Level Up on a character's Progression view: type the level you want and the character is taken there in one go. Every choice the class, lineage and background would normally ask for is still asked - the levels are gained through the system's own level-up, so each level's prompts appear as usual. Typing a lower number levels the character back down, after a warning.",
+  "version": "1.1.1",
+  "compatibility": { "minimum": "14", "verified": "14" },
+  "authors": [{ "name": "MythraPS" }],
+  "relationships": { "systems": [{ "id": "black-flag", "type": "system" }] },
+  "esmodules": ["scripts/main.mjs"],
+  "styles": ["styles/set-level.css"],
+  "languages": [{ "lang": "en", "name": "English", "path": "lang/en.json" }]
+}

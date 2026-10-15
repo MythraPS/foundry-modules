@@ -1,0 +1,30 @@
+.tsvship .window-content { padding: 0.6rem; display: flex; flex-direction: column; gap: 0.5rem; overflow-y: auto; }
+.tsvship h3 { margin: 0.2rem 0 0.1rem; font-size: 1.05em; border-bottom: 1px solid var(--color-border, #555); display: flex; align-items: center; gap: 0.4rem; }
+.tsvship h3 small { font-weight: normal; opacity: 0.75; font-size: 0.8em; margin-left: auto; }
+.tsvship .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.35rem; }
+.tsvship .stat { border: 1px solid var(--color-border, #555); border-radius: 6px; padding: 0.25rem 0.4rem; text-align: center; }
+.tsvship .stat b { display: block; font-size: 1.15em; }
+.tsvship .stat span { font-size: 0.75em; opacity: 0.8; }
+.tsvship .stat.warn { border-color: #c9593f; }
+.tsvship .row { display: flex; align-items: center; gap: 0.35rem; flex-wrap: wrap; }
+.tsvship .row button, .tsvship .crew button { width: auto; flex: 0 0 auto; padding: 0.1em 0.55em; line-height: 1.7; }
+.tsvship .row select { width: auto; flex: 0 1 auto; }
+.tsvship .sides button.on { background: #2f7fa8; color: #fff; }
+.tsvship .crew { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.3rem; }
+.tsvship .crew li { border: 1px solid var(--color-border, #555); border-radius: 6px; padding: 0.3rem; display: flex; flex-direction: column; gap: 0.25rem; }
+.tsvship .crew .who { display: flex; align-items: center; gap: 0.4rem; }
+.tsvship .crew .who img { width: 30px; height: 30px; border-radius: 50%; border: none; object-fit: cover; }
+.tsvship .crew .who b { flex: 1; }
+.tsvship .crew .acts { display: flex; gap: 0.25rem; flex-wrap: wrap; }
+.tsvship .crew li.empty { opacity: 0.7; font-style: italic; }
+.tsvship .hint { margin: 0; font-size: 0.85em; opacity: 0.8; }
+.tsvship .alert { margin: 0; padding: 0.3rem 0.5rem; border-radius: 6px; background: rgba(201, 89, 63, 0.2); border: 1px solid #c9593f; }
+.tsvship .pips { letter-spacing: 0.15em; }
+.tsvship .systems { display: flex; gap: 0.25rem; flex-wrap: wrap; }
+.tsvship .systems button { width: auto; flex: 0 0 auto; padding: 0 0.5em; line-height: 1.6; font-size: 0.85em; }
+.tsvship .systems button.off { text-decoration: line-through; background: rgba(201, 89, 63, 0.3); }
+.tsvship-card h4 { margin: 0 0 0.2rem; }
+.tsvship-card p { margin: 0.15rem 0; }
+.tsvship-card button { margin-top: 0.3rem; }
+.tsvship-form label { display: flex; align-items: center; gap: 0.5rem; margin: 0.2rem 0; }
+.tsvship-form input[type=number] { width: 6em; }

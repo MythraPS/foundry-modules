@@ -1,0 +1,11 @@
+{
+  "id": "roller-portraits",
+  "title": "Roller Portraits",
+  "description": "Shows a small portrait and the name of whoever is rolling: in the header of every chat message sent as a character, and at the top of Black Flag's roll configuration dialogs. Anyone who can see the message sees who made it.",
+  "version": "1.0.0",
+  "compatibility": { "minimum": "14", "verified": "14" },
+  "authors": [{ "name": "MythraPS" }],
+  "esmodules": ["roller-portraits.mjs"],
+  "styles": ["roller-portraits.css"],
+  "languages": [{ "lang": "en", "name": "English", "path": "lang/en.json" }]
+}

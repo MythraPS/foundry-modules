@@ -1,11 +1,34 @@
 # Foundry VTT modules
 
-Three small modules for **Foundry VTT v14**, two of them specific to the
-**Black Flag** (Tales of the Valiant) system.
+Twenty small modules for **Foundry VTT v14**, many of them for the
+**Black Flag** (Tales of the Valiant) system. Each folder is one module.
 
-Each one exists because something in core or the system did not behave the way a
-table needs it to. The notes below record *why*, with the source lines that
-justify the approach — those were the expensive part to work out, not the code.
+| Module | Folder | System |
+| --- | --- | --- |
+| Facing Arrow | `tselverse-facing` | any |
+| Black Flag Area Targets | `bf-area-targets` | Black Flag |
+| Canvas Redo | `canvas-redo` | any |
+| Action Type Labels | `action-labels` | Black Flag |
+| Auto Damage, Roll Review and Crit Tables | `bf-auto-damage` | Black Flag |
+| Dead Tokens | `dead-tokens` | any |
+| Undo Damage (Ctrl+Z) | `hp-undo` | any |
+| Roller Portraits | `roller-portraits` | any |
+| Trait Reminders | `trait-reminders` | any |
+| Everyone Speaks Common | `tselverse-common` | Black Flag |
+| Intelligence Proficiencies | `tselverse-intellect` | Black Flag |
+| Creature Journals | `tselverse-notes` | any |
+| Arachnophobia Cats | `tselverse-phobia` | any |
+| Matching Portrait & Token | `tselverse-portraits` | any |
+| Show Map in Files | `tselverse-scene-preview` | any |
+| Set Level | `tselverse-setlevel` | Black Flag |
+| Ship Bridge (Dark Matter) | `tselverse-ships` | Black Flag |
+| Tselverse Shops | `tselverse-shops` | any (needs Item Piles) |
+| Spell List | `tselverse-spells` | Black Flag |
+| Shared Treasure | `tselverse-treasure` | Black Flag |
+
+The first three have longer notes below on *why* they work the way they do, with
+the source lines that justify the approach. The rest are described more briefly
+after them.
 
 ---
 
@@ -104,6 +127,82 @@ records — so a naive redo silently loses token movement.
 
 ---
 
+## The other modules
+
+**Action Type Labels** (`action-labels`) — tags every ability in a Black Flag NPC
+stat block as Action, Bonus Action, Reaction, Free Action, Passive Effect,
+Legendary or Lair Action, as short tags or in full. Display only.
+
+**Auto Damage, Roll Review and Crit Tables** (`bf-auto-damage`) — when an attack
+hits a targeted token, rolls its damage (dice doubled on a crit) and can apply it,
+respecting resistances and immunities. Uses Black Flag's `blackFlag.postRollAttack`
+hook and the attack card's own hit rule. Optionally holds every GM roll for review
+(Reroll, Confirm, Discard) before players see it, and draws from critical hit and
+failure tables.
+
+**Dead Tokens** (`dead-tokens`) — a creature at 0 HP is faded, desaturated, drawn
+under living tokens and crossed by a large skull; healing revives it.
+
+**Undo Damage** (`hp-undo`) — Ctrl+Z reverses the last hit point change (damage,
+healing or temp HP), Ctrl+Y re-applies it. With nothing to undo, the key falls
+through to Foundry's own canvas undo.
+
+**Roller Portraits** (`roller-portraits`) — the roller's portrait and name in the
+header of chat messages and Black Flag's roll dialogs.
+
+**Trait Reminders** (`trait-reminders`) — whispers the GM when a monster's passive
+trait should trigger: auras at turn start/end, start/end-of-turn traits, on-kill
+and on-damage traits, with the trait text included. Never applies anything itself.
+
+**Everyone Speaks Common** (`tselverse-common`) — house rule: every PC and every
+speaking NPC knows Common, applied at data preparation (nothing is written to
+actors). Also: one display name per source book, weapon mastery buttons and a few
+small fixes.
+
+**Intelligence Proficiencies** (`tselverse-intellect`) — the Dungeon Coach's house
+rule: extra proficiencies equal to the INT modifier, as written or as Intellect
+Points. Layered on through the system's advancement pipeline, so un-picking one
+removes it cleanly.
+
+**Creature Journals** (`tselverse-notes`) — a book button in the Token HUD opens a
+GM journal for that creature type, or for that one token; created on demand.
+
+**Arachnophobia Cats** (`tselverse-phobia`) — chosen players see a cat instead of
+every token of the creatures you list (spiders, insects...), on the map and in the
+combat tracker. Client-side only; nothing is saved. The 21 cat photos are CC0
+from Wikimedia Commons (`cats/CREDITS.md`).
+
+**Matching Portrait & Token** (`tselverse-portraits`) — an actor with a portrait
+but the default token gets a token cropped around the face. Uses
+[face-api](https://github.com/vladmandic/face-api) (MIT, `lib/face-api-LICENSE.txt`).
+
+**Show Map in Files** (`tselverse-scene-preview`) — right-click a scene to open
+your file manager on its map image. Needs a small local helper (`foundry-reveal`,
+not included); without it, the path is copied to the clipboard.
+
+**Set Level** (`tselverse-setlevel`) — type a level beside Level Up and the
+character goes there in one go, still asking every choice along the way.
+
+**Ship Bridge (Dark Matter)** (`tselverse-ships`) — Dark Matter Sci-Fi 5E ship
+combat on Black Flag vehicles: crew roles and their actions, directional shields
+that recharge, explosion saves at 0 Mega HP, and the movement cone on the map.
+Rules mechanics only; no book text.
+
+**Tselverse Shops** (`tselverse-shops`) — Item Piles merchants open on a category
+browser, sorted cheapest first; the GM gets an item picker and shop-stock tables.
+
+**Spell List** (`tselverse-spells`) — a creature's spells as a table on its stat
+block with cast buttons, spell names in Spellcasting traits turned into links,
+search and grouping in the Spell Manager, Ctrl+Scroll zoom, and a GM Spellbook.
+`data/spells.json` (spell roles and book names) ships empty: it is generated per
+world, and spells not in it simply show without roles.
+
+**Shared Treasure** (`tselverse-treasure`) — a party stash anyone can open; drag
+items in, take them out, claim them or mark "if no one needs it". Works without a
+GM online.
+
+---
+
 ## Installing
 
 Copy any module folder into `Data/modules/` and enable it in **Manage Modules**.
@@ -112,3 +211,5 @@ Not submitted to Foundry's package registry; there is no manifest URL.
 ## Licence
 
 MIT — see [LICENSE](LICENSE). No game content is included; these are code only.
+Bundled third-party files keep their own licences: face-api (MIT) in
+`tselverse-portraits/lib/`, and the CC0 cat photos in `tselverse-phobia/cats/`.

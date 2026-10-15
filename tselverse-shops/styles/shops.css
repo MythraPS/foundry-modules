@@ -1,0 +1,29 @@
+.tsvshop-browser { position: absolute; left: 0; right: 0; bottom: 0; top: 0; z-index: 5; overflow-y: auto; padding: 8px 10px;
+  background: #ece7dc; color: #222; border-top: 1px solid #0003; }
+.tsvshop-browser h3 { margin: 4px 0 2px; }
+.tsvshop-browser .tsvshop-hint { opacity: .75; margin: 0 0 8px; }
+.tsvshop-cat { margin: 0 0 10px; }
+.tsvshop-cat > button { width: 100%; text-align: left; font-weight: 600; }
+.tsvshop-subs { display: flex; flex-wrap: wrap; gap: 4px; margin: 4px 0 0 12px; }
+.tsvshop-subs button { flex: 0 1 auto; width: auto; padding: 0 8px; }
+.tsvshop-count { opacity: .7; font-weight: 400; margin-left: 4px; }
+.tsvshop-bar { display: flex; align-items: center; gap: 8px; margin: 2px 0 4px; }
+.tsvshop-bar span { flex: 1; font-weight: 600; }
+.tsvshop-bar button { flex: 0 1 auto; width: auto; padding: 0 8px; }
+.tsvshop-hidden { display: none !important; }
+
+/* GM item picker */
+.tsvshop-picker { display: flex; flex-direction: column; gap: 6px; height: 100%; min-height: 0; }
+.tsvshop-filters { display: flex; flex-wrap: wrap; gap: 6px; }
+.tsvshop-filters input[type=search] { flex: 1 1 200px; }
+.tsvshop-filters input[type=number] { width: 6.5em; flex: 0 0 auto; }
+.tsvshop-filters select { flex: 0 1 auto; width: auto; }
+.tsvshop-picker .tsvshop-count { margin: 0; opacity: .8; }
+.tsvshop-results { flex: 1 1 auto; overflow-y: auto; min-height: 300px; max-height: 470px; border: 1px solid #8884; border-radius: 4px; }
+.tsvshop-row { display: flex; align-items: center; gap: 8px; padding: 3px 6px; border-bottom: 1px solid #8882; cursor: pointer; }
+.tsvshop-row:hover { background: #8881; }
+.tsvshop-row img { width: 28px; height: 28px; object-fit: contain; border: none; }
+.tsvshop-row .tsvshop-name { flex: 1; display: flex; flex-direction: column; }
+.tsvshop-row .tsvshop-name small { opacity: .7; }
+.tsvshop-row .tsvshop-price { width: 7em; text-align: right; }
+.tsvshop-row .tsvshop-qty { width: 4em; flex: 0 0 auto; }

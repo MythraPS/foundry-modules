@@ -1,0 +1,18 @@
+{
+  "TSVNOTES": {
+    "Label": "Creature journal",
+    "TooltipTwo": "Creature journal<br>Click: choose this token's notes or every creature of its type<br>Right-click: this token's notes<br>Shift-click: every creature of this type<br>Alt-click: show to the players",
+    "TooltipOne": "Creature journal<br>Click: open its notes<br>Alt-click: show them to the players",
+    "Folder": "Creature Journals",
+    "Page": "Notes",
+    "ForToken": "This token only",
+    "ForType": "Every {name}",
+    "Open": "open",
+    "New": "new",
+    "BannerToken": "Notes for this token only",
+    "BannerType": "Notes for every {name}",
+    "OpenType": "Notes for every {name}",
+    "MakeType": "Start notes for every {name}",
+    "TokenNotes": "Tokens with their own notes:"
+  }
+}

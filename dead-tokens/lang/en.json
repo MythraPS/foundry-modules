@@ -1,0 +1,13 @@
+{
+  "DEADTOK": {
+    "Settings": {
+      "Fade": { "Name": "How faded a dead token looks", "Hint": "1 is fully solid, 0 is invisible. Applies to the token artwork only." },
+      "Grey": { "Name": "Drain the colour", "Hint": "Show dead tokens in greyscale." },
+      "Below": { "Name": "Draw under living tokens", "Hint": "Living tokens are drawn on top of dead ones that share the same space." },
+      "Overlay": { "Name": "Skull across the whole token", "Hint": "Draw the dead marker over the whole token instead of as a small corner icon." },
+      "Auto": { "Name": "Mark dead at 0 hit points", "Hint": "Automatically mark a creature dead when its hit points reach 0." },
+      "NpcOnly": { "Name": "Only do this for NPCs", "Hint": "Leave player characters alone, since they make death saves at 0 hit points." },
+      "Revive": { "Name": "Unmark when healed", "Hint": "Remove the dead marker when the creature is healed above 0 hit points." }
+    }
+  }
+}

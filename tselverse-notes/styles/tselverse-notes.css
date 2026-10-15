@@ -1,0 +1,16 @@
+/* The HUD button. `.has-notes` marks a creature you have already written about - not
+ * `.active`, which the HUD itself sets on a button whose palette is open. */
+#token-hud .control-icon.tsvnotes.has-notes { border-color: var(--color-warm-2, #ff6400); }
+#token-hud .control-icon.tsvnotes.has-notes i { color: var(--color-warm-2, #ff6400); }
+#token-hud .tsvnotes-palette .tsvnotes-state { margin-left: 6px; opacity: 0.6; font-size: 0.85em; }
+
+/* The strip under a creature journal's title: whose notes these are, and the other level. */
+.tsvnotes-banner {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 4px 14px;
+  margin: 0 0 6px; padding: 6px 10px;
+  border-left: 3px solid var(--color-warm-2, #ff6400);
+  background: rgba(255, 100, 0, 0.08);
+  font-size: var(--font-size-13, 13px);
+}
+.tsvnotes-banner .tsvnotes-scope { font-weight: bold; }
+.tsvnotes-banner .tsvnotes-link { cursor: pointer; text-decoration: underline; }

@@ -1,0 +1,15 @@
+{
+  "HPUNDO": {
+    "Keybind": {
+      "Undo": "Undo hit point change",
+      "Redo": "Redo hit point change"
+    },
+    "Settings": {
+      "Depth": { "Name": "How many changes to remember", "Hint": "Hit point changes kept in the undo history for this session." },
+      "Notify": { "Name": "Announce each undo", "Hint": "Show a short message naming the creature and the hit points restored." }
+    },
+    "Undone": "Undo: {name} back to {hp} HP",
+    "Redone": "Redo: {name} to {hp} HP",
+    "Gone": "That creature no longer exists, so its hit points can't be restored."
+  }
+}
