@@ -325,6 +325,7 @@ a.tsvsp-link.tsvsp-missing {
 .tsvsp-spellbar button { flex: 0 0 auto; width: auto; padding: 0.1em 0.6em; font-size: 0.85em; line-height: 1.6; }
 .tsvsp-spellbar button.on { background: var(--color-warm-2, #c9593f); color: #fff; }
 .tsvsp-spellbar .tsvsp-count { margin-left: auto; font-size: 0.85em; opacity: 0.8; }
+.tsvsp-spellbar .tsvsp-circle-note { font-size: 0.85em; padding: 1px 6px; border: 1px solid var(--color-border-light-tertiary, #777); border-radius: 3px; opacity: 0.9; }
 /* GM spell list */
 .tsvsp-spell-list .window-content { overflow: auto; }
 .tsvsp-sl-filters { display: flex; gap: 0.5em; align-items: center; margin-bottom: 0.5em; position: sticky; top: 0; background: var(--color-cool-5, #1b1d24); padding: 0.3em 0; z-index: 1; }

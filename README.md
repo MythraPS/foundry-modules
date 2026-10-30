@@ -1,6 +1,6 @@
 # Foundry VTT modules
 
-Twenty small modules for **Foundry VTT v14**, many of them for the
+Twenty-two small modules for **Foundry VTT v14**, many of them for the
 **Black Flag** (Tales of the Valiant) system. Each folder is one module.
 
 | Module | Folder | System |
@@ -25,6 +25,8 @@ Twenty small modules for **Foundry VTT v14**, many of them for the
 | Tselverse Shops | `tselverse-shops` | any (needs Item Piles) |
 | Spell List | `tselverse-spells` | Black Flag |
 | Shared Treasure | `tselverse-treasure` | Black Flag |
+| Tamer Companions | `tselverse-companions` | Black Flag |
+| Battle Simulator | `tselverse-battlesim` | Black Flag |
 
 The first three have longer notes below on *why* they work the way they do, with
 the source lines that justify the approach. The rest are described more briefly
@@ -195,11 +197,27 @@ browser, sorted cheapest first; the GM gets an item picker and shop-stock tables
 block with cast buttons, spell names in Spellcasting traits turned into links,
 search and grouping in the Spell Manager, Ctrl+Scroll zoom, and a GM Spellbook.
 `data/spells.json` (spell roles and book names) ships empty: it is generated per
-world, and spells not in it simply show without roles.
+world, and spells not in it simply show without roles. The same goes for
+`data/class-spells.json`, `data/element-spells.json` and `data/spell-sources.json`
+(extra spells for class lists, Bender elements and spell sources).
 
 **Shared Treasure** (`tselverse-treasure`) — a party stash anyone can open; drag
 items in, take them out, claim them or mark "if no one needs it". Works without a
 GM online.
+
+**Tamer Companions** (`tselverse-companions`) — companions on Black Flag: any
+character whose features give a companion can bond a creature, summon and dismiss
+it, heal it on long rests and have it act right after them. For the tamer (Ryoko's
+Guide to the Yokai Realms) also: bonding into a vessel, bonded-companion limits by
+level, Companion Improvement Training and its Hit Dice, the Soul Bond healing pool
+and a shared initiative, all from a Companions button on the sheet.
+
+**Battle Simulator** (`tselverse-battlesim`) — put creatures on a map and watch them
+fight it out, sides by token disposition. Each creature moves and uses its real
+attacks, multiattack, saving-throw and recharge abilities, spells, healing and
+legendary actions; every roll goes to a GM-only chat card, and Reset puts
+positions, hit points and uses back. Macros: Simulate Battle, Stop Battle, Reset
+Battle.
 
 ---
 
@@ -210,6 +228,15 @@ Not submitted to Foundry's package registry; there is no manifest URL.
 
 ## Licence
 
-MIT — see [LICENSE](LICENSE). No game content is included; these are code only.
+MIT — see [LICENSE](LICENSE). No game content is included; these are code only, with one
+exception: the weapon mastery rules in `tselverse-common/scripts/mastery.mjs` come
+from the SRD 5.2.1 (see below). Rules text from books that can't be shared (Complete
+Dancer's two masteries) and lists made for one world (book titles, spell lists) ship
+as empty files to fill in per world.
 Bundled third-party files keep their own licences: face-api (MIT) in
 `tselverse-portraits/lib/`, and the CC0 cat photos in `tselverse-phobia/cats/`.
+
+This work includes material from the System Reference Document 5.2.1 ("SRD 5.2.1") by
+Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is
+licensed under the Creative Commons Attribution 4.0 International License, available
+at https://creativecommons.org/licenses/by/4.0/legalcode.

@@ -20,6 +20,17 @@ import "./trick-forms.mjs"; // per-form attack abilities for trick weapons (its 
 import "./choice-lists.mjs"; // pick-from-a-list for drop-only feature/talent choices (its own file)
 import "./book-names.mjs"; // one name per book in source lines and book filters (its own file)
 import "./superseded.mjs"; // hide module entries a newer printing replaces (its own file)
+import "./firearm-links.mjs"; // links for Black Flag's itemless firearm types (its own file)
+import "./banned-spells.mjs"; // spells the GM has banned for players (its own file)
+import "./conditions.mjs"; // house conditions: Poisoned is Weakened, Stunned is Dazed (its own file)
+import "./swarms.mjs"; // three or more of one summoned creature act as one swarm (its own file)
+import "./played-by.mjs"; // "Played by <player>" on PC sheets (its own file)
+import "./coin-weight.mjs"; // coins weigh nothing (its own file)
+import "./printvault.mjs"; // the Printvault feature on every PC (its own file)
+import "./spread.mjs"; // spread out / bunch up token button (Tonk) (its own file)
+import "./feature-icons.mjs"; // feature icons on sheets follow the compendium (its own file)
+import "./variants.mjs"; // Variant dropdown for items printed in several rarities (its own file)
+import "./token-speed.mjs"; // how fast moved tokens slide into place (its own file)
 const MODULE = "tselverse-common";
 // a module's language file is read at world start; until then show the English
 const _t = (key, english) => { const s = game.i18n?.localize(key); return s && s !== key ? s : english; };
@@ -203,3 +214,12 @@ function repairLinks(html) {
     return hit ? `@UUID[${hit}]{${label}}` : all;
   });
 }
+import "./show-image.mjs"; // Show Players also posts the picture to chat, click to enlarge (its own file)
+import "./kp-prices.mjs"; // prices for the Kobold Press module's magic items (its own file)
+import "./player-ease.mjs"; // simpler screen for players: hides Cards/Macros/Tables tabs, no MapForge welcome (its own file)
+import "./dice-count.mjs"; // "(2 + floor(level / 6))d10" shows as "2d10" on cards (its own file)
+import "./carry.mjs"; // Carry: moving a tile takes the tokens, walls, lights and stairs on it along (its own file)
+import "./dice-off.mjs"; // new accounts start with 3D dice hidden; players can turn them on (its own file)
+import "./player-uploads.mjs"; // players' image picker opens in player-uploads, where upload works (its own file)
+import "./stairs-stop.mjs"; // stairs ask "move up/down?" only when a move ends on them (its own file)
+import "./aa-bridge.mjs"; // Automated Animations play when a Black Flag item is used (its own file)

@@ -3,3 +3,12 @@ LOCK
 *.log
 LOG
 LOG.old
+
+# book text (Loot Tavern familiar trees) - stays on this PC only
+tselverse-companions/data/bespoke.json
+
+# backups of edited files
+*.bak*
+
+# dropped by its author before release
+stylish-action-hud-bf/

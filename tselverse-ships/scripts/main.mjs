@@ -654,12 +654,86 @@ function openBridge(ship) {
   if (open) { open.render(true); open.bringToFront?.(); return open; }
   const app = new BridgeApp(ship); app.render(true); return app;
 }
+/* ------------------------------------------------------------------ ship tiles
+ * A ship drawn as map tiles (no token) can be marked as a ship: the tile keeps the id of a world ship actor.
+ * The bridge then finds the ship from a selected tile, from the tile your character stands on, or from the
+ * marked tiles on the scene. Moving the cone and the shield-side check still use a ship token. */
+const tileShip = tile => { const a = game.actors.get(tile?.getFlag?.(MOD, "ship") ?? ""); return isShip(a) ? a : null; };
+const sceneTileShips = () => [...new Set((canvas?.scene?.tiles ?? []).map(tileShip).filter(Boolean))];
+function shipUnder(tokenDoc) {
+  if (!tokenDoc) return null;
+  const gs = tokenDoc.parent.grid.size, x = tokenDoc.x + tokenDoc.width * gs / 2, y = tokenDoc.y + tokenDoc.height * gs / 2;
+  for (const tile of tokenDoc.parent.tiles) {
+    const ship = tileShip(tile);
+    if (ship && x >= tile.x && x <= tile.x + tile.width && y >= tile.y && y <= tile.y + tile.height) return ship;
+  }
+  return null;
+}
+let packShips = null;   // compendium ships, looked up once per session
+async function markTile(tile) {
+  const options = [{value: "", label: "Not a ship"}];
+  for (const a of game.actors.filter(isShip).sort((a, b) => a.name.localeCompare(b.name))) options.push({value: a.uuid, label: a.name});
+  if (!packShips) {
+    ui.notifications.info("Looking through the compendiums for ships (only slow the first time)...");
+    packShips = [];
+    for (const pack of game.packs.filter(p => p.documentName === "Actor")) {
+      const index = await pack.getIndex({fields: ["type", `flags.${MOD}.ship`]});
+      for (const e of index) if (e.type === "vehicle" && e.flags?.[MOD]?.ship) packShips.push({value: e.uuid, label: `${e.name} (new copy from ${pack.title})`});
+    }
+    packShips.sort((a, b) => a.label.localeCompare(b.label));
+  }
+  options.push(...packShips);
+  options.push({value: "new", label: "A new ship (type in its numbers)"});
+  const now = tileShip(tile);
+  const picked = await pick("Ship tile", now ? `This tile is the ship <b>${esc(now.name)}</b>. Pick another, or "Not a ship".`
+    : "Which ship is this tile? The Ship bridge will find it from the map.", options);
+  if (picked == null) return;
+  if (picked === "") return tile.unsetFlag(MOD, "ship");
+  let ship;
+  if (picked === "new") {
+    ship = await Actor.create({name: tile.getFlag("core", "name") || "Ship", type: "vehicle"});
+    await editShip(ship);
+    if (!isShip(ship)) return ship.delete();
+  } else {
+    ship = await fromUuid(picked);
+    if (ship?.pack) ship = await Actor.create(ship.toObject());
+  }
+  if (isShip(ship)) await tile.setFlag(MOD, "ship", ship.id);
+}
+Hooks.on("renderTileHUD", (hud, element) => {
+  if (!game.user.isGM) return;
+  const root = element instanceof HTMLElement ? element : element?.[0];
+  const col = root?.querySelector(".col.left");
+  const doc = hud.document ?? hud.object?.document;
+  if (!col || !doc) return;
+  col.querySelectorAll(".tsv-shiptile").forEach(n => n.remove());
+  const ship = tileShip(doc);
+  const btn = document.createElement("button");
+  btn.type = "button";
+  btn.className = "control-icon tsv-shiptile" + (ship ? " active" : "");
+  btn.dataset.tooltip = ship ? `This tile is the ship ${esc(ship.name)}. Click to change.` : "Mark this tile as a ship, so the Ship bridge finds it.";
+  btn.innerHTML = `<i class="fa-solid fa-shuttle-space" inert></i>`;
+  btn.addEventListener("click", async ev => { ev.preventDefault(); await markTile(doc); hud.render?.(); });
+  col.append(btn);
+});
+
 async function openAny() {
-  const picked = canvas.tokens?.controlled.map(t => t.actor).find(isShip) ?? [...game.user.targets].map(t => t.actor).find(isShip);
+  const picked = canvas.tokens?.controlled.map(t => t.actor).find(isShip) ?? [...game.user.targets].map(t => t.actor).find(isShip)
+    ?? (canvas.tiles?.controlled ?? []).map(t => tileShip(t.document)).find(Boolean);
   if (picked) return openBridge(picked);
   const ships = allShips();
   const own = game.user.character && ships.find(s => roleOf(s, game.user.character));
   if (own) return openBridge(own);
+  const mine = canvas.tokens?.controlled[0]?.document ?? (game.user.character && canvas?.scene?.tokens.find(t => t.actorId === game.user.character.id));
+  const under = shipUnder(mine);
+  if (under) return openBridge(under);
+  const onMap = sceneTileShips();
+  if (onMap.length === 1) return openBridge(onMap[0]);
+  if (onMap.length > 1) {
+    const u = await pick("Bridge", "Which ship?", onMap.map(s => ({value: s.uuid, label: s.name})));
+    const s = u && await fromUuid(u); if (s) openBridge(s);
+    return;
+  }
   if (!ships.length) return ui.notifications.info("There is no ship in this world yet: drag one out of the Creatures compendium (folder Vehicles).");
   if (ships.length === 1) return openBridge(ships[0]);
   const u = await pick("Bridge", "Which ship?", ships.map(s => ({value: s.uuid, label: s.name})));
@@ -680,4 +754,4 @@ Hooks.on("getSceneControlButtons", controls => {
   if (Array.isArray(group.tools)) group.tools.push(tool); else group.tools[tool.name] = tool;
 });
 
-globalThis.TselverseShips = {open: openBridge, openAny, isShip, hitSide, assign, crewOf, explosionSave, explosionFailure, regenShields, findWeapon, gunnerAttack, shipSave, ACTIONS, OPS, BridgeApp, tokenOf};
+globalThis.TselverseShips = {open: openBridge, openAny, markTile, tileShip, isShip, hitSide, assign, crewOf, explosionSave, explosionFailure, regenShields, findWeapon, gunnerAttack, shipSave, ACTIONS, OPS, BridgeApp, tokenOf};

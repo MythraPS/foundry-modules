@@ -1,0 +1,13 @@
+{
+  "id": "tselverse-battlesim",
+  "title": "Battle Simulator",
+  "description": "GM tool for Black Flag: put creatures on a map and watch them fight it out. Sides are the tokens' dispositions (friendly, neutral, hostile). Each creature moves, uses its real attacks, multiattack, saving-throw abilities, recharge abilities, spells, healing and legendary actions, with Automated Animations or JB2A effects, and every roll goes to a GM-only chat card. A Reset button puts positions, hit points and uses back as they were. Macros (Simulate Battle, Stop Battle, Reset Battle) are made in the Macro Directory.",
+  "version": "1.0.0",
+  "compatibility": { "minimum": "14", "verified": "14" },
+  "authors": [{ "name": "MythraPS" }],
+  "relationships": {
+    "systems": [{ "id": "black-flag", "type": "system" }],
+    "recommends": [{ "id": "sequencer", "type": "module" }, { "id": "jb2a_patreon", "type": "module" }, { "id": "autoanimations", "type": "module" }]
+  },
+  "esmodules": ["scripts/battlesim.mjs"]
+}

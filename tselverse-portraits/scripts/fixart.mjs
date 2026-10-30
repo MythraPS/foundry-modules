@@ -104,6 +104,8 @@ async function docForImage(img) {
 }
 
 function showMenu(ev, onPick) {
+  // the window the click was in: the main one, or a detached window (Foundry 14 pop-out)
+  const document = ev.target?.ownerDocument ?? globalThis.document;
   document.querySelectorAll(".tsvport-menu").forEach(m => m.remove());
   const menu = document.createElement("nav");
   menu.className = "tsvport-menu";
@@ -118,9 +120,12 @@ function showMenu(ev, onPick) {
   setTimeout(() => document.addEventListener("pointerdown", away, true), 0);
 }
 
-document.addEventListener("contextmenu", ev => {
+function onContextMenu(ev) {
   if (!game.user?.isGM) return;
-  const img = ev.target.closest?.("img");
+  // the compendium browser (compendium-browser-bf) has no right-click menu of its own: anywhere on a result row
+  // counts, not just its small picture
+  const browserRow = ev.target.closest?.("#compendium-browser-bf li[data-uuid]");
+  const img = browserRow?.querySelector("img") ?? ev.target.closest?.("img");
   if (!img || img.closest("#board, .tsvport-menu, .chat-message, .editor-content, .journal-page-content")) return;
   // decided synchronously so Foundry's own menu doesn't open as well; the document is looked up after
   const looksLikeDoc = img.closest(".item-piles-item-row, [data-uuid], [data-document-uuid], [data-spell-uuid], [data-item-id], [data-entry-id], [data-document-id]")
@@ -134,7 +139,12 @@ document.addEventListener("contextmenu", ev => {
     const src = doc.parent && doc._stats?.compendiumSource ? await fromUuid(doc._stats.compendiumSource).catch(() => null) : null;
     openFix(src ?? doc);
   });
-}, true);
+}
+document.addEventListener("contextmenu", onContextMenu, true);
+// detached windows (a window popped out of Foundry into its own browser window) have their own document
+const watchWindow = win => { try { win?.document?.addEventListener("contextmenu", onContextMenu, true); } catch (e) {} };
+Hooks.on("openDetachedWindow", (id, win) => watchWindow(win));
+Hooks.once("ready", () => { for (const {window: win} of foundry.applications.detached?.windows?.values?.() ?? []) watchWindow(win); });
 
 // ---- the GUI says a picture was picked: take it in without a restart
 async function refetch(path) {

@@ -142,7 +142,7 @@ class TreasureApp extends foundry.applications.api.ApplicationV2 {
                    spare.length ? `<span class="spare">If no one needs it: ${esc(spare.join(", "))}</span>` : ""].filter(Boolean).join(" · ");
       const cls = mine === "need" ? "mine" : need.length ? "theirs" : "";
       return `<li data-item="${i.id}" class="${cls}">
-        <img src="${esc(i.img)}" data-action="sheet" alt="">
+        <img src="${esc(i.img)}" data-action="sheet" alt="" data-tooltip="Open the item sheet">
         <span class="name" data-action="sheet">${esc(i.name)}${qtyOf(i) > 1 ? `<small>× ${qtyOf(i)}</small>` : ""}</span>
         <span class="acts">
           <button type="button" data-action="take" ${chars.length ? "" : "disabled"} data-tooltip="Put it on your character">Take</button>

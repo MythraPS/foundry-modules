@@ -1,0 +1,582 @@
+{
+ "KPknightlyseed00": {
+  "rarity": "veryRare",
+  "price": 30000,
+  "book": "uncommon"
+ },
+ "KPphidjetzspinne": {
+  "rarity": "veryRare",
+  "price": 30000,
+  "book": "uncommon"
+ },
+ "KPstaffofchannel": {
+  "rarity": "rare",
+  "price": 4010,
+  "book": "uncommon"
+ },
+ "KPtamedverdantma": {
+  "rarity": "rare",
+  "price": 4010,
+  "book": "uncommon"
+ },
+ "KPumberbeans0000": {
+  "rarity": "rare",
+  "price": 4000,
+  "book": "uncommon"
+ },
+ "KPverminoussnips": {
+  "rarity": "rare",
+  "price": 8000,
+  "book": "uncommon"
+ },
+ "KPcloakofthevoid": {
+  "rarity": "legendary",
+  "price": 50000,
+  "book": "rare"
+ },
+ "KPebonybeetlearm": {
+  "rarity": "veryRare",
+  "price": 50000,
+  "book": "rare"
+ },
+ "KPhatofmentalacu": {
+  "rarity": "veryRare",
+  "price": 30010,
+  "book": "rare"
+ },
+ "KPimmortalmote00": {
+  "rarity": "legendary",
+  "price": 100000,
+  "book": "rare"
+ },
+ "KPmantleofthevo1": {
+  "rarity": "veryRare",
+  "price": 50000,
+  "book": "rare"
+ },
+ "KPscepterofmajes": {
+  "rarity": "veryRare",
+  "price": 50000,
+  "book": "rare"
+ },
+ "KPstaffofvoices0": {
+  "rarity": "veryRare",
+  "price": 200000,
+  "book": "rare"
+ },
+ "KPstaffofunravel": {
+  "rarity": "veryRare",
+  "price": 33000,
+  "book": "rare"
+ },
+ "KPtipstaff000000": {
+  "rarity": "veryRare",
+  "price": 33000,
+  "book": "rare"
+ },
+ "KPwineofthestarr": {
+  "rarity": "veryRare",
+  "price": 1500,
+  "book": "rare"
+ },
+ "KParmorofthewhit": {
+  "rarity": "legendary",
+  "price": 100000,
+  "book": "very rare"
+ },
+ "KPbloodwhisperca": {
+  "rarity": "legendary",
+  "price": 200000,
+  "book": "very rare"
+ },
+ "KPbrainjuice0000": {
+  "rarity": "legendary",
+  "price": 10500,
+  "book": "very rare"
+ },
+ "KPcommandersvisa": {
+  "rarity": "legendary",
+  "price": 110000,
+  "book": "very rare"
+ },
+ "KPeyesoftheouter": {
+  "rarity": "legendary",
+  "price": 100000,
+  "book": "very rare"
+ },
+ "KPhairpickofprot": {
+  "rarity": "legendary",
+  "price": 100000,
+  "book": "very rare"
+ },
+ "KPhelmetofnullif": {
+  "rarity": "legendary",
+  "price": 110000,
+  "book": "very rare"
+ },
+ "KPnullifierslexi": {
+  "rarity": "legendary",
+  "price": 100000,
+  "book": "very rare"
+ },
+ "KPringofsealing0": {
+  "rarity": "legendary",
+  "price": 55000,
+  "book": "very rare"
+ },
+ "KPstaffofcamazot": {
+  "rarity": "legendary",
+  "price": 55000,
+  "book": "very rare"
+ },
+ "KPstaffofdesolat": {
+  "rarity": "legendary",
+  "price": 110000,
+  "book": "very rare"
+ },
+ "KPwandofdrowning": {
+  "rarity": "legendary",
+  "price": 110000,
+  "book": "very rare"
+ },
+ "KPthefathersstaf": {
+  "rarity": "legendary",
+  "price": 55000,
+  "book": "very rare"
+ },
+ "KPtomeofboundfle": {
+  "rarity": "legendary",
+  "price": 25000,
+  "book": "very rare"
+ },
+ "KPclockworkhare0": {
+  "rarity": "artifact",
+  "price": null,
+  "book": "legendary"
+ },
+ "KPphoenixember00": {
+  "rarity": "artifact",
+  "price": null,
+  "book": "legendary"
+ },
+ "KPironelixir0000": {
+  "rarity": "artifact",
+  "price": null,
+  "book": "legendary"
+ },
+ "KPbottomlesstank": {
+  "rarity": "common",
+  "price": 500,
+  "book": "very rare"
+ },
+ "KPcedarskincuira": {
+  "rarity": "rare",
+  "price": 2000,
+  "book": "very rare"
+ },
+ "KPmidnightarmor0": {
+  "rarity": "rare",
+  "price": 8000,
+  "book": "very rare"
+ },
+ "KPempyreanhalo00": {
+  "rarity": "rare",
+  "price": 8000,
+  "book": "very rare"
+ },
+ "KPpotentcureall0": {
+  "rarity": "rare",
+  "price": 350,
+  "book": "legendary"
+ },
+ "KPswordofbrights": {
+  "rarity": "rare",
+  "price": 4000,
+  "book": "legendary"
+ },
+ "KPbuckleofblasti": {
+  "rarity": "rare",
+  "price": 17600,
+  "book": "legendary"
+ },
+ "KPshroudofoth000": {
+  "rarity": "rare",
+  "price": 8000,
+  "book": "unique"
+ },
+ "KPtheblackgoatwi": {
+  "rarity": "rare",
+  "price": 2000,
+  "book": "unique"
+ },
+ "KPbindingoath000": {
+  "rarity": "veryRare",
+  "price": 1500,
+  "book": "(none in the module; Vault of Magic)"
+ },
+ "KPbloodpricearmo": {
+  "rarity": "legendary",
+  "price": 100000,
+  "book": "(none in the module; Vault of Magic)"
+ },
+ "KPbludgeonofnigh": {
+  "rarity": "rare",
+  "price": 8000,
+  "book": "(none in the module; Vault of Magic)"
+ },
+ "KPchillblainarmo": {
+  "rarity": "veryRare",
+  "price": 50000,
+  "book": "(none in the module; Vault of Magic)"
+ },
+ "KPencouragingarm": {
+  "rarity": "veryRare",
+  "price": 50000,
+  "book": "(none in the module; Vault of Magic)"
+ },
+ "KPghostbarding00": {
+  "rarity": "uncommon",
+  "price": 1000,
+  "book": "(none in the module; Vault of Magic)"
+ },
+ "KPgravewardarmor": {
+  "rarity": "veryRare",
+  "price": 50000,
+  "book": "(none in the module; Vault of Magic)"
+ },
+ "KPlightningrod00": {
+  "rarity": "veryRare",
+  "price": 50000,
+  "book": "(none in the module; Vault of Magic)"
+ },
+ "KPmirroredarmor0": {
+  "rarity": "uncommon",
+  "price": 500,
+  "book": "(none in the module; Vault of Magic)"
+ },
+ "KPmuffledarmor00": {
+  "rarity": "common",
+  "price": 100,
+  "book": "(none in the module; Vault of Magic)"
+ },
+ "KPstandardofdivi": {
+  "rarity": "rare",
+  "price": 16000,
+  "book": "(none in the module; Vault of Magic)"
+ },
+ "KPwitchhuntersar": {
+  "rarity": "rare",
+  "price": 8000,
+  "book": "(none in the module; Vault of Magic)"
+ },
+ "KParcanistspigme": {
+  "rarity": "uncommon",
+  "price": 2000,
+  "book": "(none in the module; lowest version: Cobalt Blue)"
+ },
+ "KParmorofwarding": {
+  "rarity": "uncommon",
+  "price": 2000,
+  "book": "(none in the module)"
+ },
+ "KPberserkerskilt": {
+  "rarity": "uncommon",
+  "price": 1000,
+  "book": "(none in the module; lowest version: Wolf Fur)"
+ },
+ "KPcrawlingcloak0": {
+  "rarity": "common",
+  "price": 25,
+  "book": "(none in the module; lowest version: Crawling Cloak)"
+ },
+ "KPdoombringersbl": {
+  "rarity": "rare",
+  "price": 8000,
+  "book": "(none in the module)"
+ },
+ "KPexsanguinating": {
+  "rarity": "rare",
+  "price": 4400,
+  "book": "(none in the module)"
+ },
+ "KPfeathertoken00": {
+  "rarity": "common",
+  "price": 100,
+  "book": "(none in the module; lowest version: Jackdaw’s Dart)"
+ },
+ "KPfigureheadofpr": {
+  "rarity": "uncommon",
+  "price": 500,
+  "book": "(none in the module; lowest version: Albatross)"
+ },
+ "KPfigurineofwon1": {
+  "rarity": "common",
+  "price": 25,
+  "book": "(none in the module; lowest version: Tin Dog)"
+ },
+ "KPglowingmoss000": {
+  "rarity": "uncommon",
+  "price": 2000,
+  "book": "(none in the module)"
+ },
+ "KPheartglowlante": {
+  "rarity": "uncommon",
+  "price": 2200,
+  "book": "(none in the module; lowest version: Deadbane)"
+ },
+ "KPhellfirearmor0": {
+  "rarity": "common",
+  "price": 50,
+  "book": "(none in the module; lowest version: Hellfire Armor)"
+ },
+ "KPhoneybuckle000": {
+  "rarity": "uncommon",
+  "price": 2040,
+  "book": "(none in the module; lowest version: Black Honey Buckle)"
+ },
+ "KPiounstone00000": {
+  "rarity": "common",
+  "price": 50,
+  "book": "(none in the module; lowest version: Illumination)"
+ },
+ "KPkoboldfirework": {
+  "rarity": "common",
+  "price": 10,
+  "book": "(none in the module; lowest version: Fairy Sparkler)"
+ },
+ "KPmaskofthewarch": {
+  "rarity": "uncommon",
+  "price": 2000,
+  "book": "(none in the module; lowest version: Cave Bear)"
+ },
+ "KPorbofobfuscati": {
+  "rarity": "uncommon",
+  "price": 100,
+  "book": "(none in the module; lowest version: Orb of Obfuscation)"
+ },
+ "KPphasemirror000": {
+  "rarity": "rare",
+  "price": 30000,
+  "book": "(none in the module; lowest version: Handheld)"
+ },
+ "KPpotionbelt0000": {
+  "rarity": "common",
+  "price": 10,
+  "book": "(none in the module; lowest version: Potion Belt)"
+ },
+ "KPprimaldoom0000": {
+  "rarity": "uncommon",
+  "price": 100,
+  "book": "(none in the module; lowest version: Primal Doom of Anguish)"
+ },
+ "KPringofspellneg": {
+  "rarity": "uncommon",
+  "price": 2030,
+  "book": "(none in the module; lowest version: Blue)"
+ },
+ "KPsacrificialkni": {
+  "rarity": "common",
+  "price": 100,
+  "book": "(none in the module; lowest version: Sacrificial Knife)"
+ },
+ "KPscepterweapon0": {
+  "rarity": "rare",
+  "price": 8000,
+  "book": "(none in the module)"
+ },
+ "KPservileshabti0": {
+  "rarity": "uncommon",
+  "price": 2000,
+  "book": "(none in the module; lowest version: Crafter Shabti)"
+ },
+ "KPskeletonkey000": {
+  "rarity": "common",
+  "price": 25,
+  "book": "(none in the module; lowest version: Copper)"
+ },
+ "KPspearbiter0000": {
+  "rarity": "uncommon",
+  "price": 2000,
+  "book": "(none in the module; lowest version: Spearbiter)"
+ },
+ "KPtearsofthedrea": {
+  "rarity": "rare",
+  "price": 8000,
+  "book": "(none in the module)"
+ },
+ "KPtrickshotmirro": {
+  "rarity": "uncommon",
+  "price": 2200,
+  "book": "(none in the module; lowest version: Ricocheting Trick Shot Mirror)"
+ },
+ "KPumbralarmor000": {
+  "rarity": "rare",
+  "price": 8000,
+  "book": "(none in the module)"
+ },
+ "KPunstablebombar": {
+  "rarity": "uncommon",
+  "price": 1000,
+  "book": "(none in the module; lowest version: Murderous Bombard)"
+ },
+ "KPaosdahymnal000": {
+  "rarity": "fabled",
+  "price": null,
+  "book": "(none in the rarity field; module text agrees; Deep Magic Vol. 2 p120: Wondrous Item, Fabled)"
+ },
+ "KPartesbellator0": {
+  "rarity": "fabled",
+  "price": null,
+  "book": "(none in the rarity field; module text agrees; Deep Magic Vol. 2 p116)"
+ },
+ "KPcodexaeternus0": {
+  "rarity": "fabled",
+  "price": null,
+  "book": "(none in the rarity field; module text agrees; Deep Magic Vol. 2 p115)"
+ },
+ "KPkylindrosdaemo": {
+  "rarity": "fabled",
+  "price": null,
+  "book": "(none in the rarity field; module text agrees; Deep Magic Vol. 2 p118)"
+ },
+ "KPdeadfallandfet": {
+  "rarity": "fabled",
+  "price": null,
+  "book": "(none in the rarity field; module text agrees; Book of Blades (ToV) pdf p81, Priceless)"
+ },
+ "KPdestiny0000000": {
+  "rarity": "fabled",
+  "price": null,
+  "book": "(none in the rarity field; module text agrees; Book of Blades (ToV) pdf p88, Priceless)"
+ },
+ "KPfeatherwing000": {
+  "rarity": "fabled",
+  "price": null,
+  "book": "(none in the rarity field; module text agrees; Book of Blades (ToV) pdf p82, Priceless)"
+ },
+ "KPmankiller00000": {
+  "rarity": "fabled",
+  "price": null,
+  "book": "(none in the rarity field; module text agrees; Book of Blades (ToV) pdf p88)"
+ },
+ "KPsecondchance00": {
+  "rarity": "fabled",
+  "price": null,
+  "book": "(none in the rarity field; module text agrees; Book of Blades (ToV) pdf p89)"
+ },
+ "KPsoulreaver0000": {
+  "rarity": "fabled",
+  "price": null,
+  "book": "(none in the rarity field; module text agrees; Book of Blades (ToV) pdf p89)"
+ },
+ "KPtrainerswhip00": {
+  "rarity": "fabled",
+  "price": null,
+  "book": "(none in the rarity field; module text agrees; Book of Blades (ToV) pdf p85)"
+ },
+ "KPaquadescender0": {
+  "rarity": "fabled",
+  "price": null,
+  "book": "(none in the rarity field; module text: Wondrous Item, Fabled; source book not on the drive)"
+ },
+ "KPeternalrancor0": {
+  "rarity": "fabled",
+  "price": null,
+  "book": "(none in the rarity field; module text: Wondrous Item, Fabled; source book not on the drive)"
+ },
+ "KPphoenixcarpet0": {
+  "rarity": "fabled",
+  "price": null,
+  "book": "(none in the rarity field; module text: Wondrous Item, Fabled; source book not on the drive)"
+ },
+ "KPwhirlwindspher": {
+  "rarity": "fabled",
+  "price": null,
+  "book": "(none in the rarity field; module text: Wondrous Item, Fabled; source book not on the drive)"
+ },
+ "KPstardagger0000": {
+  "rarity": "rare",
+  "price": 4000,
+  "book": "(none in the rarity field; module text agrees; Warlock Grimoire I p35: Rare weapon)"
+ },
+ "KPclawedscepter0": {
+  "rarity": "legendary",
+  "price": 25000,
+  "book": "(none: printed \"Unique\"; house rule)"
+ },
+ "KPkeyofveles0000": {
+  "rarity": "veryRare",
+  "price": 16500,
+  "book": "(none printed; house rule)"
+ },
+ "KPdevouringshiel": {
+  "rarity": "rare",
+  "price": 8000,
+  "book": "(no rarity printed; rated 2026-10-23 by power vs 5e items, priced by ToV rules)"
+ },
+ "KPeclipsetalisma": {
+  "rarity": "uncommon",
+  "price": 500,
+  "book": "(no rarity printed; rated 2026-10-23 by power vs 5e items, priced by ToV rules)"
+ },
+ "KPfiremaceofjudg": {
+  "rarity": "rare",
+  "price": 4000,
+  "book": "(no rarity printed; rated 2026-10-23 by power vs 5e items, priced by ToV rules)"
+ },
+ "KPhandoftheplagu": {
+  "rarity": "rare",
+  "price": 8000,
+  "book": "(no rarity printed; rated 2026-10-23 by power vs 5e items, priced by ToV rules)"
+ },
+ "KPironnimbus0000": {
+  "rarity": "rare",
+  "price": 4000,
+  "book": "(no rarity printed; rated 2026-10-23 by power vs 5e items, priced by ToV rules)"
+ },
+ "KPpotionofdeathg": {
+  "rarity": "veryRare",
+  "price": 1500,
+  "book": "(no rarity printed; rated 2026-10-23 by power vs 5e items, priced by ToV rules)"
+ },
+ "KPsacrificialnew": {
+  "rarity": "common",
+  "price": 25,
+  "book": "(no rarity printed; rated 2026-10-23 by power vs 5e items, priced by ToV rules)"
+ },
+ "KPseaserpentveno": {
+  "rarity": "uncommon",
+  "price": 100,
+  "book": "(no rarity printed; rated 2026-10-23 by power vs 5e items, priced by ToV rules)"
+ },
+ "KPskullseed00000": {
+  "rarity": "common",
+  "price": 25,
+  "book": "(no rarity printed; rated 2026-10-23 by power vs 5e items, priced by ToV rules)"
+ },
+ "KPcentaurlance00": {
+  "rarity": "rare",
+  "price": 100,
+  "book": "(mundane gear; rarity = the \"Availability\" the book prints, book price kept; her call 2026-10-23)"
+ },
+ "KPspicekit000000": {
+  "rarity": "uncommon",
+  "price": 10,
+  "book": "(mundane gear; rarity = the \"Availability\" the book prints, book price kept; her call 2026-10-23)"
+ },
+ "KPtrickbow000000": {
+  "rarity": "uncommon",
+  "price": 50,
+  "book": "(mundane gear; rarity = the \"Availability\" the book prints, book price kept; her call 2026-10-23)"
+ },
+ "KPwandererswheel": {
+  "rarity": "rare",
+  "price": 100,
+  "book": "(mundane gear; rarity = the \"Availability\" the book prints, book price kept; her call 2026-10-23)"
+ },
+ "KPwhipsash000000": {
+  "rarity": "rare",
+  "price": 16,
+  "book": "(mundane gear; rarity = the \"Availability\" the book prints, book price kept; her call 2026-10-23)"
+ }
+}

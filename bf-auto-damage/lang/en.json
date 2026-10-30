@@ -23,7 +23,21 @@
       }
     },
     "Notify": {
-      "NoPermission": "Auto Damage: you can't change {name}'s hit points, so the damage was rolled but not applied."
+      "NoPermission": "Auto Damage: you can't change {name}'s hit points, so the damage was rolled but not applied.",
+      "NoGM": "The damage to {name} is rolled. No GM is online to apply it, so the GM will apply it later."
+    },
+    "Menu": {
+      "Apply": "Apply Damage",
+      "Healing": "Apply as Healing",
+      "Half": "Apply Half Damage",
+      "Double": "Apply Double Damage"
+    },
+    "Mode": {
+      "Tool": "Review my rolls (on: approve each roll; off: rolls go straight through)",
+      "On": "Roll review ON: your rolls wait for you to Confirm, Reroll or Discard.",
+      "Off": "Roll review OFF: your rolls go straight through.",
+      "Key": "Switch roll review on or off",
+      "KeyHint": "Flips between approving each of your rolls and letting them go straight through. Same as the hand button in the Token controls."
     }
   }
 }

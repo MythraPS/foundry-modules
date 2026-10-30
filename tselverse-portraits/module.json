@@ -2,7 +2,7 @@
   "id": "tselverse-portraits",
   "title": "Matching Portrait & Token",
   "description": "When an actor has a portrait but still the default token, a token is made from the portrait: the face is found, a square around it is cut out and saved in assets/tokens, and set as the token (also on tokens already placed). The GM's browser does it, so the GM must be connected; actors still waiting are done when the GM loads the world. A new token image on an actor with the default portrait becomes its portrait too. A picture someone chose is never replaced. Face detection: face-api (MIT, lib/face-api-LICENSE.txt).",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "compatibility": {
     "minimum": "14",
     "verified": "14"

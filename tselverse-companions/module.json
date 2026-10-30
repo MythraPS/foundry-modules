@@ -1,0 +1,13 @@
+{
+  "id": "tselverse-companions",
+  "title": "Tamer Companions",
+  "description": "Companions on Black Flag: any character whose features give a companion can bond a creature, summon and dismiss it, heal it on long rests and have it act right after them, optionally with their proficiency bonus. For the tamer (Ryoko's Guide to the Yokai Realms) also: bond a creature into a vessel, summon and dismiss it, the bonded-companion limits by tamer level, the tamer's proficiency bonus on its rolls, Companion Improvement Training and its Hit Dice, the Soul Bond healing pool, long rests and a shared initiative. A Companions button on the tamer's sheet opens it all.",
+  "version": "0.9.0",
+  "compatibility": {"minimum": "14", "verified": "14"},
+  "authors": [{"name": "MythraPS"}],
+  "relationships": {"systems": [{"id": "black-flag", "type": "system"}]},
+  "esmodules": ["scripts/main.mjs"],
+  "styles": ["styles/tselverse-companions.css"],
+  "socket": true,
+  "languages": [{"lang": "en", "name": "English", "path": "lang/en.json"}]
+}

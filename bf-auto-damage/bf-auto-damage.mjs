@@ -19,6 +19,22 @@ import { MODULE_ID, shouldHold, openReview } from "./hold.mjs";
 import { attackHold } from "./shared.mjs";
 import { d20State, drawCrit } from "./crits.mjs";
 import "./review.mjs";
+import "./menu.mjs";
+import "./mode.mjs";
+
+const SOCKET = `module.${MODULE_ID}`;
+
+// The active GM applies damage that players' hits deal to creatures the players don't own.
+Hooks.once("ready", () => {
+  game.socket.on(SOCKET, async (msg) => {
+    if (msg?.type !== "applyDamage" || game.users.activeGM?.id !== game.user.id) return;
+    if (!game.settings.get(MODULE_ID, "enabled") || !game.settings.get(MODULE_ID, "autoApply")) return;
+    try {
+      const actor = await fromUuid(msg.actor);
+      if (actor?.applyDamage) await actor.applyDamage(msg.damages, { multiplier: 1 });
+    } catch (err) { console.error(`${MODULE_ID} | applying a player's damage failed`, err); }
+  });
+});
 
 Hooks.once("init", () => {
   const reg = (key, name, def) => game.settings.register(MODULE_ID, key, {
@@ -129,7 +145,10 @@ Hooks.on("blackFlag.postRollAttack", async (rolls, { subject: activity } = {}) =
       const actor = fromUuidSync(t.uuid);
       if (!actor?.applyDamage) continue;
       if (!actor.isOwner) {
-        ui.notifications.warn(game.i18n.format("BFAD.Notify.NoPermission", { name: t.name }));
+        // A player hitting a creature they don't own: the GM's client applies it (players can't
+        // change other actors' hit points). Only when no GM is online does the player hear about it.
+        if (game.users.activeGM) game.socket.emit(SOCKET, { type: "applyDamage", actor: t.uuid, damages });
+        else ui.notifications.info(game.i18n.format("BFAD.Notify.NoGM", { name: t.name }));
         continue;
       }
       await actor.applyDamage(damages, { multiplier: 1 });

@@ -162,10 +162,22 @@ Hooks.once("init", () => {
   cls.prototype.prepareData = function (...args) {
     const r = original.apply(this, args);
     try {
+      // One size rule for every token, ring or not (2026-10-19): Medium fills its square, Small is drawn at 80%
+      // (Black Flag's own sizes[].dynamicTokenScale). Black Flag 3.0.078 means to do this for ringed tokens but
+      // reads CONFIG.BlackFlag.actorSizes, which doesn't exist (it is .sizes), so it never happened.
+      let size = this.baseActor?.system?.traits?.size;
+      if (!this.actorLink) size = this.delta?.system?.traits?.size ?? size;
+      const sizes = CONFIG.BlackFlag?.sizes ?? CONFIG.BlackFlag?.actorSizes ?? {};
+      const bySize = sizes[size]?.dynamicTokenScale ?? 1;
+      // our disc art is inset to 316 of 512 px for the ring: without the ring it is drawn larger to fill the square
       const src = this.texture?.src ?? "";
-      if (!this.ring?.enabled && (src.includes("modules/tselverse-art/art/tokens/") || src.endsWith("-disc.webp"))) {
-        this.texture.scaleX *= TSVPORT_FILL;
-        this.texture.scaleY *= TSVPORT_FILL;
+      const disc = !this.ring?.enabled && (src.includes("modules/tselverse-art/art/tokens/") || src.endsWith("-disc.webp"));
+      // from the saved scale, not the prepared one: Foundry can prepare a token twice without resetting
+      // it, and multiplying again made tokens (512/316)^2 = 2.6x too big (Angulotl Yegg, 2026-10-19)
+      const k = (disc ? TSVPORT_FILL : 1) * bySize;
+      if (k !== 1) {
+        this.texture.scaleX = (this._source.texture?.scaleX ?? 1) * k;
+        this.texture.scaleY = (this._source.texture?.scaleY ?? 1) * k;
       }
     } catch (err) { console.warn("tselverse-portraits | token fill", err); }
     return r;

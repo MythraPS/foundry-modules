@@ -2,7 +2,7 @@
   "id": "tselverse-spells",
   "title": "Spell List",
   "description": "Puts a creature's spells in a table on its stat block - a cast button, the spell's name (click for its description), what kind of action it is, uses left, range, save or attack and area. Spell names written in a creature's Spellcasting trait become links, so a spell that is only named in the text can be set up in a few seconds: it is looked for in every installed spell compendium, and if it is not there the window offers a web search for it. Only Game Masters and trusted players can add spells. Also tidies Black Flag's Spell Manager: search box, spells grouped by circle, and each row labelled with its school and source. Also tidies Black Flag's talent and class pickers with a search box and a sort, and adds Ctrl + Scroll to zoom any window's contents (Ctrl + 0 resets it) and makes the wheel scroll sideways in windows whose contents are laid out in a row, with Shift for up and down. Adds a GM Spellbook (wand button in the token controls): cast any spell from any compendium, from any creature or from a hidden stand-in, with no slot spent and no uses tracked; the spell is added to that creature at will and can be swept away again in one click.",
-  "version": "1.8.9",
+  "version": "1.10.0",
   "compatibility": {
     "minimum": "14",
     "verified": "14"

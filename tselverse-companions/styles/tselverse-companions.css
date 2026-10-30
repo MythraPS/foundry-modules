@@ -1,0 +1,29 @@
+.tsvcmp .window-content { padding: 0.6rem; display: flex; flex-direction: column; gap: 0.5rem; }
+.tsvcmp .lim { margin: 0; font-size: 0.9em; }
+.tsvcmp ul.cmp { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.35rem; }
+.tsvcmp ul.cmp li { display: flex; align-items: center; gap: 0.5rem; padding: 0.3rem; border: 1px solid var(--color-border, #555); border-radius: 6px; }
+.tsvcmp ul.cmp li.none { justify-content: center; opacity: 0.7; }
+.tsvcmp ul.cmp img { width: 42px; height: 42px; object-fit: cover; border-radius: 50%; border: none; }
+.tsvcmp .nm { flex: 1; display: flex; flex-direction: column; min-width: 0; }
+.tsvcmp .nm span { font-size: 0.8em; opacity: 0.8; }
+.tsvcmp .bt { display: flex; gap: 0.2rem; flex-wrap: wrap; }
+.tsvcmp .bt button { width: auto; padding: 0.1em 0.5em; line-height: 1.6; flex: 0 0 auto; }
+.tsvcmp .bt button.todo { background: var(--color-warm-2, #c9593f); color: #fff; }
+.tsvcmp .drop { border: 2px dashed var(--color-border, #777); border-radius: 8px; padding: 0.9rem; text-align: center; opacity: 0.8; }
+.tsvcmp .drop.over { background: rgba(120, 180, 120, 0.15); opacity: 1; }
+.tsvcmp-opt { display: block; margin: 0.35rem 0 0.1rem; }
+.tsvcmp-opt span { display: block; font-size: 0.8em; opacity: 0.8; margin-left: 1.5rem; }
+.tsvcmp-opt.off { opacity: 0.45; }
+.tsvcmp-sub { margin-left: 1.5rem; font-size: 0.85em; }
+.tsvcmp-sub select, .tsvcmp-sub input { width: auto; display: inline-block; }
+.tsvcmp .tools { display: flex; gap: 6px; margin: 0 0 6px; } .tsvcmp .tools button { flex: 0 0 auto; }
+/* the three starters (first companion) */
+.tsvcmp .starters { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 4px 0 6px; }
+.tsvcmp .starter { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 8px; border: 2px solid var(--color-border, #555); border-radius: 8px; text-align: center; }
+.tsvcmp .starter img { width: 96px; height: 96px; object-fit: contain; border: none; }
+.tsvcmp .starter p { margin: 0; font-size: 0.85em; flex: 1; }
+.tsvcmp .starter .kind { font-size: 0.8em; font-weight: bold; padding: 0 8px; border-radius: 10px; color: #fff; }
+.tsvcmp .starter.fire { border-color: #c2502b; } .tsvcmp .starter.fire .kind { background: #c2502b; }
+.tsvcmp .starter.grass { border-color: #4f8a3a; } .tsvcmp .starter.grass .kind { background: #4f8a3a; }
+.tsvcmp .starter.water { border-color: #3170b8; } .tsvcmp .starter.water .kind { background: #3170b8; }
+.tsvcmp .hint { margin: 0 0 6px; opacity: 0.75; font-size: 0.9em; }

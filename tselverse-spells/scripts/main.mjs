@@ -1507,6 +1507,25 @@ async function tsvspSpells() {
   catch { tsvspSpellData = {}; }
   return tsvspSpellData;
 }
+/* The bender's elements also take every fitting spell from the whole library, not only the book's
+ * short lists: data/element-spells.json ({air: [names], earth: [...], ...}), sorted from every
+ * spell's text. Read once at ready; an "Elemental Affinity: X" feature (or a flag element: "x")
+ * adds element X's names to the class list it is for. */
+let tsvspElementSpells = {};
+// and a class's own list grows the same way: data/class-spells.json ({tamer: [names]})
+let tsvspClassSpells = {};
+// spells that came without a source of magic (most of the Kobold Press module, a few of ours):
+// data/spell-sources.json gives each one, so classes that learn by source can find them
+let tsvspExtraSources = {};
+Hooks.once("ready", async () => {
+  try { tsvspExtraSources = await (await fetch(`modules/${MODULE}/data/spell-sources.json`)).json(); }
+  catch { tsvspExtraSources = {}; }
+  try { tsvspElementSpells = await (await fetch(`modules/${MODULE}/data/element-spells.json`)).json(); }
+  catch { tsvspElementSpells = {}; }
+  try { tsvspClassSpells = await (await fetch(`modules/${MODULE}/data/class-spells.json`)).json(); }
+  catch { tsvspClassSpells = {}; }
+});
+const tsvspElementOf = it => String(it.getFlag?.(MODULE, "element") ?? it.name?.match(/Elemental Affinity:\s*(\w+)/i)?.[1] ?? "").toLowerCase();
 const tsvspPackRank = col => col.startsWith("tselverse-art.") ? 0 : col.startsWith("black-flag.") ? 1 : 2;
 const tsvspHidden = () => { try { return new Set(game.settings.get(MODULE, "hiddenSpells") ?? []); } catch { return new Set(); } };
 // one name per book ("ToH" and "Tome of Heroes" are the same book) - tselverse-common's list
@@ -1591,8 +1610,12 @@ Hooks.once("ready", () => {
     const item = this.advancement?.item;
     const cls = item?.identifier ?? item?.system?.identifier?.value;
     const list = [...(item?.getFlag?.(MODULE, "spellList") ?? [])];
+    if (list.length) list.push(...(tsvspClassSpells[cls] ?? []));
     for (const it of item?.actor?.items ?? [])
-      if (it !== item && it.getFlag?.(MODULE, "spellListFor") === cls) list.push(...(it.getFlag(MODULE, "spellList") ?? []));
+      if (it !== item && it.getFlag?.(MODULE, "spellListFor") === cls) {
+        list.push(...(it.getFlag(MODULE, "spellList") ?? []));
+        list.push(...(tsvspElementSpells[tsvspElementOf(it)] ?? []));
+      }
     if (!list.length) { this._tsvspList = null; return filters; }
     const names = new Set(list.map(keyOf));
     this._tsvspList = names;
@@ -1608,6 +1631,9 @@ Hooks.once("ready", () => {
           const best = new Map();
           for (const e of lists.flatMap(l => [...l])) {
             if (e.type !== "spell" || e.system?.container) continue;
+            const have = e.system?.source; const n = Array.isArray(have) ? have.length : have ? [...(have.value ?? have)].length : 0;
+            const extra = !n && tsvspExtraSources[keyOf(e.name)];
+            if (extra) foundry.utils.setProperty(e, "system.source", [...extra]);
             const id = e.system?.identifier?.value || e.name.slugify({strict: true});
             foundry.utils.setProperty(e, "system.identifier.value", id);
             const cur = best.get(id);
@@ -1670,9 +1696,17 @@ Hooks.on("renderSpellcastingDialog", (app, html) => {
   roles.append(btn(tsvspResT("TSVSP.Roles.Any", "Any"), !c.role, "", () => { app._tsvspRole = ""; }));
   for (const [r, label] of TSVSP_ROLES) roles.append(btn(tsvspResT(`TSVSP.Roles.${r}`, label), c.role === r, "", () => { app._tsvspRole = c.role === r ? "" : r; }));
   const circles = document.createElement("span"); circles.className = "tsvsp-group";
+  const ord = n => n === 0 ? tsvspResT("TSVSP.Circle.Cantrip", "Cantrips")
+    : `${n}${["th", "st", "nd", "rd"][n % 100 > 10 && n % 100 < 14 ? 0 : n % 10 < 4 ? n % 10 : 0]}`;
+  if (c.circles.length === 1) {
+    // only one circle on offer: say so, instead of buttons with nothing to choose between
+    const note = document.createElement("span"); note.className = "tsvsp-circle-note";
+    note.textContent = c.circles[0] === 0 ? tsvspResT("TSVSP.Circle.AllCantrips", "All cantrips")
+      : tsvspResT("TSVSP.Circle.AllOne", "All {n} circle").replace("{n}", ord(c.circles[0]));
+    note.dataset.tooltip = "Every spell you can pick for this slot is this circle. Circle buttons appear once you can choose from more than one.";
+    circles.append(note);
+  }
   if (c.circles.length > 1) {
-    const ord = n => n === 0 ? tsvspResT("TSVSP.Circle.Cantrip", "Cantrips")
-      : `${n}${["th", "st", "nd", "rd"][n % 100 > 10 && n % 100 < 14 ? 0 : n % 10 < 4 ? n % 10 : 0]}`;
     circles.append(btn(tsvspResT("TSVSP.Circle.Any", "Any circle"), c.circle === null, "", () => { app._tsvspCircle = null; }));
     for (const n of c.circles) circles.append(btn(ord(n), c.circle === n, n ? `${ord(n)}-circle spells only` : "", () => { app._tsvspCircle = c.circle === n ? null : n; }));
   }
@@ -1815,4 +1849,29 @@ Hooks.on("renderApplicationV2", async (app, element) => {
   };
   sweep();
   new MutationObserver(sweep).observe(root, {childList: true, subtree: true});
+});
+
+/* Spells a feature hands you (a subclass's bonus spells, "always prepared and they don't count
+ * against the number of spells you can prepare") come in through a grant-spells step, not the
+ * class's spellcasting step - Black Flag still counts them against the class's spells known, so a
+ * level-3 earth bender with the Ferocity Magic Missile read 5 of 4. Count only the picks. */
+Hooks.once("init", () => {
+  const Model = CONFIG.Item?.dataModels?.spell;
+  const original = Model?.prototype?.prepareSpellStats;
+  if (!original) return console.warn(`${MODULE} | spell stats not found - granted spells still count as picks`);
+  Model.prototype.prepareSpellStats = function (...args) {
+    const out = original.apply(this, args);
+    try {
+      const item = this.parent, actor = item?.actor;
+      const [srcId, advId] = String(item?.getFlag?.("black-flag", "advancementOrigin") ?? "").split(".");
+      const adv = srcId && advId ? actor?.items.get(srcId)?.system?.advancement?.get?.(advId) : null;
+      const ident = item?.getFlag?.("black-flag", "relationship.origin")?.identifier;
+      const origin = ident && actor?.system?.spellcasting?.origins?.[ident];
+      if (adv && adv.type !== "spellcasting" && origin) {
+        const kind = this.circle?.base === 0 ? "cantrips" : this.tags?.has?.("ritual") ? "rituals" : "spells";
+        if (origin[kind]?.value > 0) origin[kind].value -= 1;
+      }
+    } catch (err) { console.warn(`${MODULE} | granted-spell count`, err); }
+    return out;
+  };
 });

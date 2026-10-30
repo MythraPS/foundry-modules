@@ -6,7 +6,7 @@
  * character with a Weapon Mastery feature - the Dancer has one). Both are used here:
  *  - each mastery is added to Black Flag's weapon-option list, so it shows (and can be ticked) on
  *    a weapon's Details tab next to Bash and Trip;
- *  - every weapon gets its Player's Handbook (2024) mastery by its base weapon (a +1 rapier is a
+ *  - every weapon gets its SRD 5.2.1 mastery by its base weapon (a +1 rapier is a
  *    rapier: Vex), Complete Dancer's weapons theirs by name; a mastery ticked by hand replaces it;
  *  - the mastery's rule is shown under the weapon's description and in its tooltip.
  * Nothing is written into items: the default is applied while the weapon is prepared, so turning
@@ -14,6 +14,12 @@
  */
 const MODULE = "tselverse-common";
 
+import BOOK_TEXT from "./mastery-text.mjs"; // Complete Dancer's rules text, kept per world; empty in the public copy
+
+// Cleave to Vex: the mastery properties of the SRD 5.2.1.
+// This work includes material from the System Reference Document 5.2.1 ("SRD 5.2.1") by Wizards of the
+// Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative
+// Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.
 export const MASTERIES = {
   cleave: ["Cleave", "If you hit a creature with a melee attack roll using this weapon, you can make a melee attack roll with the weapon against a second creature within 5 feet of the first that is also within your reach. On a hit, the second creature takes the weapon's damage, but don't add your ability modifier to that damage unless that modifier is negative. You can make this extra attack only once per turn."],
   graze: ["Graze", "If your attack roll with this weapon misses a creature, you can deal damage to that creature equal to the ability modifier you used to make the attack roll. This damage is the same type dealt by the weapon, and the damage can be increased only by increasing the ability modifier."],
@@ -24,11 +30,11 @@ export const MASTERIES = {
   topple: ["Topple", "If you hit a creature with this weapon, you can force the creature to make a Constitution saving throw (DC 8 plus the ability modifier used to make the attack roll and your Proficiency Bonus). On a failed save, the creature has the Prone condition."],
   vex: ["Vex", "If you hit a creature with this weapon and deal damage to the creature, you have Advantage on your next attack roll against that creature before the end of your next turn."],
   // Complete Dancer (Mage Hand Press)
-  parry: ["Parry", "Complete Dancer (Mage Hand Press) weapon mastery: see the book for its rule."],
-  shift: ["Shift", "Complete Dancer (Mage Hand Press) weapon mastery: see the book for its rule."]
+  parry: ["Parry", BOOK_TEXT.parry ?? "Complete Dancer (Mage Hand Press) weapon mastery: see the book for its rule."],
+  shift: ["Shift", BOOK_TEXT.shift ?? "Complete Dancer (Mage Hand Press) weapon mastery: see the book for its rule."]
 };
 
-// Player's Handbook (2024) p214-215, by Black Flag base weapon key
+// SRD 5.2.1 weapons table (Mastery column), by Black Flag base weapon key
 const BY_BASE = {
   club: "slow", dagger: "nick", greatclub: "push", handaxe: "vex", javelin: "slow", lightHammer: "nick", mace: "sap",
   quarterstaff: "topple", sickle: "nick", spear: "sap", dart: "vex", lightCrossbow: "slow", shortbow: "vex", sling: "slow",
@@ -75,7 +81,7 @@ export function grantOf(item) {
 }
 /*
  * House rule (2026-10-14, user: yes to giving the Tales of the Valiant martial classes the 2024 Weapon Mastery):
- * the number of weapon kinds by class level, from the 2024 Player's Handbook class tables. A multiclassed
+ * the number of weapon kinds by class level, from the SRD 5.2.1 class tables. A multiclassed
  * character uses the best of its classes (the 2024 rules don't let Weapon Mastery stack across classes).
  * The feature itself is an item flagged tselverse-common.classMastery, added to the actor (ensureClassMastery).
  */
@@ -200,7 +206,7 @@ function masteryHtml(system) {
 Hooks.once("init", () => {
   game.settings.register(MODULE, "masteries", {
     name: "Weapon masteries (2024) beside weapon options",
-    hint: "Every weapon also has its 2024 Player's Handbook mastery (Complete Dancer's weapons theirs), shown with its weapon options, under its description and in its tooltip. A character uses only the masteries of the weapon kinds chosen for their Weapon Mastery (or similar) feature.",
+    hint: "Every weapon also has its 2024 (SRD 5.2.1) mastery (Complete Dancer's weapons theirs), shown with its weapon options, under its description and in its tooltip. A character uses only the masteries of the weapon kinds chosen for their Weapon Mastery (or similar) feature.",
     scope: "world", config: true, type: Boolean, default: true, requiresReload: true
   });
   if (!enabled()) return;
@@ -290,7 +296,7 @@ Hooks.on("renderApplicationV2", (app, element) => {
     const main = document.createElement("fieldset");
     main.className = "tsvc-mbox tsvip-main";
     main.innerHTML = `<legend style="display:flex;align-items:center;gap:6px">Weapon Mastery
-      <button type="button" class="link-button tsvc-mopen" aria-label="Choose weapons"><i class="fa-solid fa-cog" inert></i></button>
+      <button type="button" class="link-button tsvc-mopen" aria-label="Choose weapons" data-tooltip="Choose weapon masteries"><i class="fa-solid fa-cog" inert></i></button>
       <span class="tsvip-count${over}" style="margin-left:auto">${ch.length}/${n}</span></legend>
       ${ch.length ? `<ul class="tsvip-list">${ch.map(k => `<li>${esc(kindLabel(k, actor))}</li>`).join("")}</ul>`
                   : `<p class="tsvip-empty">${n} to choose</p>`}`;

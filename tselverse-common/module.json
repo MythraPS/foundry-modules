@@ -1,8 +1,8 @@
 {
   "id": "tselverse-common",
   "title": "Everyone Speaks Common",
-  "description": "House rule for Black Flag: every player character speaks Common, and so does every NPC that speaks any language at all. Creatures with no language, creatures that can't speak, and creatures that already speak all languages are left alone. Applied when the sheet is prepared, so nothing is written into actors or compendiums; turn either half off in the module settings.",
-  "version": "1.6.0",
+  "description": "House rule for Black Flag: every player character speaks Common, and so does every NPC that speaks any language at all. Creatures with no language, creatures that can't speak, and creatures that already speak all languages are left alone. Applied when the sheet is prepared, so nothing is written into actors or compendiums; turn either half off in the module settings. Also hides GM-banned spells from players and stops them adding one (list in the module settings). Summons of three or more of one creature become a single swarm (also a Token HUD button to merge selected tokens). Player character sheets show which player plays them. Every player character has the Printvault (the Fingerprint Vault): a feature, not an item, so it can't be dropped, sold or stolen. Creatures flagged to spread out (Tonk) get a token button that switches between one square and 2x2; they stay Medium for every rule. Pictures shown to players are also posted to chat; click one to see it full size. Kobold Press magic items get prices by the Tales of the Valiant rules. Magic items printed in several rarities get a Variant dropdown that sets rarity, price, charges and DCs. Tokens can slide faster when moved, or snap into place (setting).",
+  "version": "1.18.0",
   "compatibility": {
     "minimum": "14",
     "verified": "14"
@@ -29,5 +29,6 @@
       "name": "English",
       "path": "lang/en.json"
     }
-  ]
+  ],
+  "socket": true
 }

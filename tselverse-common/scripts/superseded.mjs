@@ -33,3 +33,29 @@ Hooks.once("init", () => {
 });
 Hooks.once("setup", pruneAll);
 Hooks.once("ready", pruneAll);
+
+// Foundry only applies a module's compendium-art mapping to entries it finds in the pack index, so
+// the hidden ones above would keep their placeholder picture wherever they still turn up (old links,
+// world copies). Once the world is ready, their mapped pictures are registered here instead.
+Hooks.once("ready", async () => {
+  if (!game.compendiumArt?.enabled) return;
+  for (const mod of game.modules) {
+    const cfg = mod.active && mod.flags?.compendiumArtMappings?.[game.system.id];
+    if (!cfg?.mapping) continue;
+    let map;
+    try { const r = await fetch(cfg.mapping, { cache: "no-cache" }); if (!r.ok) continue; map = await r.json(); }
+    catch (e) { continue; }
+    for (const [packId, ids] of Object.entries(HIDE)) {
+      const pack = game.packs.get(packId);
+      if (!pack || pack.documentName !== "Actor") continue;
+      for (const id of Object.keys(ids)) {
+        const info = map?.[packId]?.[id];
+        if (!info) continue;
+        const uuid = pack.getUuid(id);
+        if (game.compendiumArt.has(uuid)) continue;
+        const img = info.img ?? info.actor;
+        game.compendiumArt.set(uuid, { img, actor: img, token: info.token ?? img, ...(cfg.credit ? { credit: cfg.credit } : {}) });
+      }
+    }
+  }
+});
